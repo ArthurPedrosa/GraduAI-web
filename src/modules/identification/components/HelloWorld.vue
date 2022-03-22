@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('../assets/logo.svg')"
+          :src="require('$shared/assets/logo.png')"
           class="my-3"
           contain
           height="200"
@@ -23,7 +23,7 @@
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+        <h2 class="headline primary font-weight-bold mb-3">What's next?</h2>
 
         <v-row justify="center">
           <a

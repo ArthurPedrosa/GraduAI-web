@@ -1,11 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import Identification from "$modules/identification/store";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: { Identification },
 });
