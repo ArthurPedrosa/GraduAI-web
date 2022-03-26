@@ -1,15 +1,26 @@
 <template>
-  <hello-world />
+  <div>
+    <WelcomeArea />
+
+    <Divider />
+
+    <UniversitiesArea />
+
+    <Divider />
+  </div>
 </template>
 
 <script>
-import { HelloWorld } from "$modules/identification/components";
+import { WelcomeArea, UniversitiesArea } from "./components";
+import { Divider } from "$shared/components";
 
 export default {
   name: "Home",
 
   components: {
-    HelloWorld,
+    WelcomeArea,
+    UniversitiesArea,
+    Divider,
   },
 };
 </script>
