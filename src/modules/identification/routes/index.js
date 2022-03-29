@@ -1,5 +1,5 @@
 import Home from "$modules/identification/views/home/Home.vue";
-import { NavBar } from "$shared/components";
+import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {
   path: "/",
@@ -7,6 +7,6 @@ export const HomeRoute = {
   components: {
     default: Home,
     NavBar,
-    // Footer: Footer,
+    Footer,
   },
 };

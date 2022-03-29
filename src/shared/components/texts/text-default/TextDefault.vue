@@ -1,7 +1,7 @@
 <template>
-  <h6 class="text-h6 font-weight-light">
+  <div class="body-1 font-weight-light">
     <slot />
-  </h6>
+  </div>
 </template>
 
 <script>

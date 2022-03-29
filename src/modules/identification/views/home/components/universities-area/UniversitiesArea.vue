@@ -1,20 +1,21 @@
+<style lang="scss" src="./UniversitiesArea.scss" scoped></style>
+
 <template>
   <v-container>
     <v-col align="center">
-      <GraduateHatIcon />
+      <GraduateHatIcon class="hidden-xs-only" />
 
-      <SubTitle class="text-center primary--text">
-        As 5 universidades com menores taxas de evasão
+      <SubTitle class="text-center primary--text mb-16">
+        As Universidades com Menores Taxas de Evasão
       </SubTitle>
 
-      <v-col align="center" class="mt-10">
+      <div class="container-card">
         <v-row
-          ref="card"
           v-for="(item, index) in 5"
           :key="index"
-          class="mb-10"
+          :justify="isOdd(index) ? 'start' : 'end'"
+          class="my-10"
           align="center"
-          justify="center"
         >
           <v-progress-circular
             :rotate="360"
@@ -22,17 +23,16 @@
             :width="5"
             :value="item"
             color="success"
-            class="mr-6"
           >
             {{ item }} %
           </v-progress-circular>
 
-          <TextDefault>
+          <TextDefault class="text-university">
             Centro Federal de Educação Tecnológica Celso Suckow da Fonseca
             <TextDefault class="font-weight-bold">(CEFET-RJ)</TextDefault>
           </TextDefault>
         </v-row>
-      </v-col>
+      </div>
     </v-col>
   </v-container>
 </template>
@@ -47,8 +47,12 @@ export default {
     TextDefault,
   },
 
-  mounted() {
-    console.log(this.$refs.card[0].offsetWidth);
+  computed: {},
+
+  methods: {
+    isOdd(index) {
+      return index % 2 === 0;
+    },
   },
 };
 </script>

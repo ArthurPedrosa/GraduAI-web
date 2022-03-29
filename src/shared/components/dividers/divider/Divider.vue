@@ -1,5 +1,5 @@
 <template>
-  <div class="secondary py-6 my-6"></div>
+  <div class="secondary py-5 my-6"></div>
 </template>
 
 <script>
