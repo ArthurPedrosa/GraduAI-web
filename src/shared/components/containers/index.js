@@ -1,3 +1,4 @@
-import NavBar from "./nav-bar/NavBar.vue";
+import NavBar from "./nav-bar/NavBar";
+import Footer from "./footer/Footer";
 
-export { NavBar };
+export { NavBar, Footer };
