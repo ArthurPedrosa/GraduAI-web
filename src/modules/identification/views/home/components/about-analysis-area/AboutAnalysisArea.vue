@@ -97,7 +97,7 @@
 <script>
 import { SubTitle, CardText, TextDefault } from "$shared/components";
 export default {
-  name: "AnalysisArea",
+  name: "AboutAnalysisArea",
   components: {
     SubTitle,
     CardText,
