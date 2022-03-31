@@ -14,7 +14,9 @@
         </TextDefault>
 
         <v-row justify="center" class="mt-5">
-          <Button class="mr-2" color="success">Começar</Button>
+          <Button class="mr-2" color="success" @click="goToRoute('/analysis')"
+            >Começar</Button
+          >
 
           <Button outlined class="ml-2" color="success">
             Iniciar sessão
@@ -37,6 +39,13 @@ export default {
     TextDefault,
     WelcomeIcon,
     Button,
+  },
+  methods: {
+    goToRoute(pRouteName) {
+      if (pRouteName) {
+        this.$router.push(pRouteName);
+      }
+    },
   },
 };
 </script>
