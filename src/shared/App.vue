@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <router-view name="NavBar" />
-    <v-main>
+    <v-main class="d-flex">
       <router-view />
     </v-main>
     <router-view name="Footer" />
