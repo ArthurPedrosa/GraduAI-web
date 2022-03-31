@@ -2,13 +2,13 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import * as IdentificationRoutes from "$modules/identification/routes";
-import * as AnalyzeView from "$modules/analysis/routes";
+import * as AnalysisRoutes from "$modules/analysis/routes";
 
 Vue.use(VueRouter);
 
 const routes = [
   ...Object.values(IdentificationRoutes),
-  ...Object.values(AnalyzeView),
+  ...Object.values(AnalysisRoutes),
 ];
 
 const router = new VueRouter({

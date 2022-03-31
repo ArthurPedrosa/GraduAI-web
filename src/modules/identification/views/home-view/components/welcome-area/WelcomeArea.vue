@@ -14,7 +14,7 @@
         </TextDefault>
 
         <v-row justify="center" class="mt-5">
-          <Button class="mr-2" color="success" @click="goToRoute('/analyze')"
+          <Button class="mr-2" color="success" @click="goToRoute('/analysis')"
             >Começar</Button
           >
 

@@ -12,6 +12,8 @@
 
     <Divider />
 
+    <AboutAnalysisArea />
+
     <Divider />
 
     <AboutCreatorsArea />
@@ -23,6 +25,7 @@ import {
   WelcomeArea,
   UniversitiesArea,
   AttributesArea,
+  AboutAnalysisArea,
   AboutCreatorsArea,
 } from "./components";
 import { Divider } from "$shared/components";
@@ -34,6 +37,7 @@ export default {
     WelcomeArea,
     UniversitiesArea,
     AttributesArea,
+    AboutAnalysisArea,
     AboutCreatorsArea,
     Divider,
   },
