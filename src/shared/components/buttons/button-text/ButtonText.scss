@@ -1,0 +1,6 @@
+.btn {
+  &:hover {
+    opacity: 0.5;
+    transition: ease 0.1s;
+  }
+}

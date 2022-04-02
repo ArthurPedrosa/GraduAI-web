@@ -1,5 +1,7 @@
 import HomeView from "$modules/identification/views/home-view/HomeView.vue";
 import LoginView from "$modules/identification/views/login-view/LoginView.vue";
+import RegisterView from "$modules/identification/views/register-view/RegisterView.vue";
+import RecoverPasswordView from "$modules/identification/views/recover-password-view/RecoverPasswordView.vue";
 import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {
@@ -17,6 +19,26 @@ export const LoginRoute = {
   name: "Login",
   components: {
     default: LoginView,
+    NavBar,
+    Footer,
+  },
+};
+
+export const RegisterRoute = {
+  path: "/login/register",
+  name: "Register",
+  components: {
+    default: RegisterView,
+    NavBar,
+    Footer,
+  },
+};
+
+export const RecoverPasswordRoute = {
+  path: "/login/recover-password",
+  name: "RecoverPassword",
+  components: {
+    default: RecoverPasswordView,
     NavBar,
     Footer,
   },

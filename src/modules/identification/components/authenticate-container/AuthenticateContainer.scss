@@ -1,17 +1,36 @@
 .authenticate-container {
   height: 100%;
+  max-width: 1600px;
 
-  .login-icon {
-    max-width: 441px;
-    max-height: 343px;
-    width: 77%;
-    height: 50%;
+  .card-size {
+    max-width: 470px;
+    min-width: 400px;
+    min-height: 550px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    .btns-area {
+      margin-top: auto;
+    }
   }
 
-  .cloud-icon {
-    max-width: 169px;
-    max-height: 117px;
-    width: 50%;
-    height: 50%;
+  .info-area {
+    max-width: 650px;
+    .login-icon {
+      max-width: 441px;
+      max-height: 343px;
+      width: 77%;
+      height: 50%;
+      position: relative;
+      right: 3.5%;
+    }
+
+    .cloud-icon {
+      max-width: 169px;
+      max-height: 117px;
+      width: 50%;
+      height: 50%;
+    }
   }
 }

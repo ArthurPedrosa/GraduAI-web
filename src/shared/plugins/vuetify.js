@@ -11,7 +11,7 @@ export default new Vuetify({
         "primary-light": "#D2DFF6",
         secondary: "#212738",
         success: "#44af69",
-        error: "#e03616",
+        danger: "#e03616",
         warning: "#fcab10",
         forecolor: "#fff",
         dark: "#000",
