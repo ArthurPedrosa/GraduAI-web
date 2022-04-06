@@ -9,6 +9,7 @@
 
 <script>
 import { Input } from "$shared/components/inputs";
+
 export default {
   name: "InputPassword",
 
@@ -21,24 +22,28 @@ export default {
       return [...this.rules, this.passwordRules];
     },
   },
+
   props: {
     type: {
       type: String,
       default: "password",
     },
   },
+
   data() {
     return {
       show: false,
     };
   },
+
   methods: {
-    passwordRules: (pValue) =>
-      pValue.length >= 8 || "A senha deve conter 8 ou mais caracteres.",
+    passwordRules: (pValue) => {
+      return pValue.length >= 8 || "A senha deve conter 8 ou mais caracteres.";
+    },
+
     clickAppend: () => {
-      console.log("alo");
-      console.log(this);
-      this.show = !this.show;
+      console.log("alo", this.show);
+      // this.show = !this.show;
     },
   },
 };

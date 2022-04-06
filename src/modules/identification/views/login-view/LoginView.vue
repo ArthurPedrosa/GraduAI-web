@@ -11,7 +11,7 @@
         :rules="[RULES_VALIDATION.required]"
       />
 
-      <Input label="Senha" />
+      <InputPassword label="Senha" />
     </div>
 
     <div slot="card-footer" class="d-flex flex-column align-center">
@@ -43,14 +43,14 @@
 <script>
 import rulesValidations from "$shared/utils/rulesValidations";
 import { AuthenticateContainer } from "$modules/identification/components";
-import { Button, Input, InputEmail } from "$shared/components";
+import { Button, InputPassword, InputEmail } from "$shared/components";
 
 export default {
   name: "Login",
   components: {
     AuthenticateContainer,
     Button,
-    Input,
+    InputPassword,
     InputEmail,
   },
 
