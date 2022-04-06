@@ -9,8 +9,10 @@
             :rules="getRules"
             :type="type"
             :prepend-inner-icon="icon"
+            :append-icon="appendIcon"
             outlined
             dense
+            @click:append="$emit('click-append')"
           />
         </v-input>
       </v-col>
@@ -42,6 +44,10 @@ export default {
     value: {
       default: undefined,
     },
+    appendIcon: {
+      type: String,
+      default: "",
+    },
   },
 
   computed: {
@@ -55,7 +61,6 @@ export default {
       inputValue: "",
     };
   },
-
   mounted() {
     if (this.value) {
       this.inputValue = this.value;
@@ -71,5 +76,6 @@ export default {
       this.inputValue = pValue;
     },
   },
+  methods: {},
 };
 </script>
