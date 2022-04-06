@@ -1,8 +1,9 @@
 <template>
   <Input
     label="Senha"
-    :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+    :append-icon="hide ? 'mdi-eye' : 'mdi-eye-off'"
     :rules="getRules"
+    :type="hide ? 'password' : 'text'"
     @click-append="clickAppend"
   />
 </template>
@@ -32,7 +33,7 @@ export default {
 
   data() {
     return {
-      show: false,
+      hide: true,
     };
   },
 
@@ -41,9 +42,8 @@ export default {
       return pValue.length >= 8 || "A senha deve conter 8 ou mais caracteres.";
     },
 
-    clickAppend: () => {
-      console.log("alo", this.show);
-      // this.show = !this.show;
+    clickAppend() {
+      this.hide = !this.hide;
     },
   },
 };
