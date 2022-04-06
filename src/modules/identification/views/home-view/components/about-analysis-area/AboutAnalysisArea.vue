@@ -1,3 +1,4 @@
+<style lang="scss" src="./AboutAnalysisArea.scss" scoped></style>
 <template>
   <v-container>
     <v-row>
