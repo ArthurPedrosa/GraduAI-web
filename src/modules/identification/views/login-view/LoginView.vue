@@ -4,11 +4,13 @@
     subtitle="Digite o email e a senha de um usuário ja cadastrado para iniciar a sessão."
   >
     <div class="pa-10">
-      <InputEmail v-model="form.email" label="E-mail" icon="fa-at" />
-      <pre>
+      <InputEmail
+        v-model="form.email"
+        label="E-mail"
+        icon="fa-at"
+        :rules="[RULES_VALIDATION.required]"
+      />
 
-      {{ form }}
-      </pre>
       <Input label="Senha" />
     </div>
 
@@ -39,6 +41,7 @@
 </template>
 
 <script>
+import rulesValidations from "$shared/utils/rulesValidations";
 import { AuthenticateContainer } from "$modules/identification/components";
 import { Button, Input, InputEmail } from "$shared/components";
 
@@ -51,12 +54,15 @@ export default {
     InputEmail,
   },
 
+  created() {
+    this.RULES_VALIDATION = rulesValidations;
+  },
+
   data: () => ({
     form: {
       email: "",
     },
   }),
-
   methods: {
     goToRoute(pRouteName) {
       if (pRouteName) {

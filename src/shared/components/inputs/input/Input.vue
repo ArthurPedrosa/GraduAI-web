@@ -21,7 +21,6 @@
 <script>
 export default {
   name: "Input",
-  components: {},
 
   props: {
     label: {
@@ -41,7 +40,7 @@ export default {
       default: "",
     },
     value: {
-      default: "",
+      default: undefined,
     },
   },
 
