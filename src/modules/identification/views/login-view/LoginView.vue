@@ -3,7 +3,15 @@
     title-card="Iniciar Sessão"
     subtitle="Digite o email e a senha de um usuário ja cadastrado para iniciar a sessão."
   >
-    <div>FORM</div>
+    <div class="pa-10">
+      <InputEmail v-model="form.email" label="E-mail" icon="fa-at" />
+      <pre>
+
+      {{ form }}
+      </pre>
+      <Input label="Senha" />
+    </div>
+
     <div slot="card-footer" class="d-flex flex-column align-center">
       <Button
         small
@@ -32,14 +40,22 @@
 
 <script>
 import { AuthenticateContainer } from "$modules/identification/components";
-import { Button } from "$shared/components";
+import { Button, Input, InputEmail } from "$shared/components";
 
 export default {
   name: "Login",
   components: {
     AuthenticateContainer,
     Button,
+    Input,
+    InputEmail,
   },
+
+  data: () => ({
+    form: {
+      email: "",
+    },
+  }),
 
   methods: {
     goToRoute(pRouteName) {
