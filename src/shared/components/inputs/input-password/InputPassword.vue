@@ -4,6 +4,7 @@
     :append-icon="hide ? 'mdi-eye' : 'mdi-eye-off'"
     :rules="getRules"
     :type="hide ? 'password' : 'text'"
+    :icon="icon"
     @click-append="clickAppend"
   />
 </template>
@@ -18,16 +19,20 @@ export default {
 
   extends: Input,
 
-  computed: {
-    getRules() {
-      return [...this.rules, this.passwordRules];
-    },
-  },
-
   props: {
     type: {
       type: String,
       default: "password",
+    },
+    icon: {
+      type: String,
+      default: "fa-lock",
+    },
+  },
+
+  computed: {
+    getRules() {
+      return [...this.rules, this.passwordRules];
     },
   },
 

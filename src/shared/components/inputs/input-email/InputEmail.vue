@@ -8,6 +8,13 @@ export default {
 
   extends: Input,
 
+  props: {
+    icon: {
+      type: String,
+      default: "fa-at",
+    },
+  },
+
   computed: {
     getRules() {
       return [...this.rules, this.emailValidation];
