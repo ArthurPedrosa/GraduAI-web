@@ -17,13 +17,14 @@
           v-model="form.email"
           label="E-mail"
           class="mb-2"
-          :rules="[RULES_VALIDATION.required]"
+          :rules="[$rulesValidations.required]"
         />
 
         <InputPassword
           v-model="form.password"
           label="Senha"
-          :rules="[RULES_VALIDATION.required]"
+          :rules="[$rulesValidations.required]"
+          auto-complete="current-password"
         />
 
         <ButtonText
@@ -62,7 +63,6 @@
 </template>
 
 <script>
-import rulesValidations from "$shared/utils/rulesValidations";
 import { AuthenticateContainer } from "$modules/identification/components";
 import {
   Button,
@@ -81,16 +81,13 @@ export default {
     InputPassword,
   },
 
-  created() {
-    this.RULES_VALIDATION = rulesValidations;
-  },
-
   data: () => ({
     form: {
       email: undefined,
       password: undefined,
     },
   }),
+
   methods: {
     goToRoute(pRouteName) {
       if (pRouteName) {
