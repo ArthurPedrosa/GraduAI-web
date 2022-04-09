@@ -6,6 +6,7 @@
     :rules="getRules"
     :type="hide ? 'password' : 'text'"
     :icon="icon"
+    :auto-complete="autoComplete"
     @click-append="clickAppend"
   />
 </template>

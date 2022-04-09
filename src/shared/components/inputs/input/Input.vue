@@ -12,6 +12,7 @@
             :append-icon="appendIcon"
             outlined
             dense
+            :autocomplete="autoComplete"
             @click:append="$emit('click-append')"
           />
         </v-input>
@@ -45,6 +46,10 @@ export default {
       default: undefined,
     },
     appendIcon: {
+      type: String,
+      default: "",
+    },
+    autoComplete: {
       type: String,
       default: "",
     },

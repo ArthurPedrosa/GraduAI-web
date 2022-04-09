@@ -17,6 +17,9 @@
 
   .info-area {
     max-width: 650px;
+    @media (max-width: 1150px) {
+      max-width: 520px;
+    }
     .login-icon {
       max-width: 441px;
       max-height: 343px;
