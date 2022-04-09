@@ -1,9 +1,10 @@
 <template>
-  <v-container class="px-0" fluid>
-    <v-row>
-      <v-checkbox v-model="checkboxValue" :label="label"></v-checkbox>
-    </v-row>
-  </v-container>
+  <v-checkbox
+    v-model="checkboxValue"
+    :label="label"
+    :rules="getRules"
+    required
+  ></v-checkbox>
 </template>
 
 <script>
@@ -17,6 +18,15 @@ export default {
     },
     value: {
       default: undefined,
+    },
+    rules: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  computed: {
+    getRules() {
+      return [...this.rules];
     },
   },
   data() {
