@@ -5,6 +5,7 @@
       <router-view />
     </v-main>
     <router-view name="Footer" />
+    <notifications group="app" position="bottom right" />
   </v-app>
 </template>
 

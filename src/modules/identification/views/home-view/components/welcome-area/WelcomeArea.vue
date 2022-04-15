@@ -19,6 +19,7 @@
           </Button>
 
           <Button
+            v-if="!isLoggedIn"
             outlined
             class="ml-2"
             color="success"
@@ -36,6 +37,7 @@
 
 <script>
 import { Title, TextDefault, WelcomeIcon, Button } from "$shared/components";
+import { mapGetters } from "vuex";
 
 export default {
   name: "WelcomeArea",
@@ -44,6 +46,12 @@ export default {
     TextDefault,
     WelcomeIcon,
     Button,
+  },
+
+  computed: {
+    ...mapGetters({
+      isLoggedIn: "Identification/isLoggedIn",
+    }),
   },
 
   methods: {

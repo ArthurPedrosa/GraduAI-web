@@ -1,3 +1,4 @@
+export * from "./avatars";
 export * from "./inputs";
 export * from "./cards";
 export * from "./buttons";

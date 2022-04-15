@@ -95,15 +95,40 @@ export default {
       }
     },
 
-    login() {
+    async login() {
       try {
         const isValid = this.$refs.form.validate();
 
         if (isValid) {
-          alert("logado");
+          const variables = {
+            email: this.form.email,
+            password: this.form.password,
+          };
+
+          const { user, token } = await this.$store.dispatch(
+            "Identification/LOGIN_USER",
+            variables
+          );
+
+          this.$store.commit("Identification/setToken", token);
+          this.$store.commit("Identification/setUser", user);
+
+          this.$notify({
+            group: "app",
+            type: "success",
+            title: "Bem vindo!",
+            text: "Acesso realizado com sucesso.",
+          });
+
+          this.$router.push("/");
         }
       } catch (err) {
-        console.log(err);
+        this.$notify({
+          group: "app",
+          type: "error",
+          title: err.status || "Error",
+          text: err.message || "",
+        });
       }
     },
   },
