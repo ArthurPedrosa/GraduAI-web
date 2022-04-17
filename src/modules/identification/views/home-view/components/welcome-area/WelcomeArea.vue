@@ -56,7 +56,7 @@ export default {
 
   methods: {
     goToRoute(pRouteName) {
-      if (pRouteName) this.$router.push(pRouteName);
+      if (pRouteName) this.$router.push(pRouteName).catch(() => {});
     },
   },
 };

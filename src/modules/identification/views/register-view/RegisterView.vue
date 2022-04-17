@@ -30,13 +30,13 @@
         <InputPassword
           v-model="form.passwordConfirmation"
           label="Confirme sua senha"
-          class="mb-2"
           :rules="[pswdConfirmationValidation]"
         />
 
         <Checkbox
           v-model="form.agreement"
           label="Concordo com os termos"
+          class="align-self-center"
           required
           :rules="[checkboxValidation]"
         />
@@ -138,7 +138,7 @@ export default {
             text: "O usuário foi criado com sucesso.",
           });
 
-          this.$router.push("/login");
+          this.$router.push("/login").catch(() => {});
         }
       } catch (err) {
         this.$notify({

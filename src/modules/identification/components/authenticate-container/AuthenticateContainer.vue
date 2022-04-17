@@ -35,7 +35,7 @@
             Faça a análise sem a necessidade de registrar-se, clicando
             <ButtonText
               class="warning--text"
-              @click="() => $router.push('/analysis')"
+              @click="() => $router.push('/analysis').catch(() => {})"
             >
               aqui
             </ButtonText>

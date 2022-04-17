@@ -91,7 +91,7 @@ export default {
   methods: {
     goToRoute(pRouteName) {
       if (pRouteName) {
-        this.$router.push(pRouteName);
+        this.$router.push(pRouteName).catch(() => {});
       }
     },
 
@@ -120,7 +120,7 @@ export default {
             text: "Acesso realizado com sucesso.",
           });
 
-          this.$router.push("/");
+          this.$router.push("/").catch(() => {});
         }
       } catch (err) {
         this.$notify({

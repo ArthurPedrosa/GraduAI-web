@@ -75,7 +75,7 @@ export default {
           text: "Você não está mais logado.",
         });
 
-        this.$router.push("/");
+        this.$router.push("/login").catch(() => {});
       } catch (err) {
         this.$notify({
           group: "app",

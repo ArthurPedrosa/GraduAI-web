@@ -1,13 +1,16 @@
+import axios from "axios";
 import api from "$shared/services/api";
 
 const loginUser = async (store, { email, password }) => {
   try {
-    const response = await api.post("/access-control/login", {
+    const { data } = await api.post("/access-control/login", {
       email,
       password,
     });
 
-    return response.data;
+    axios.defaults.headers.Authorization = "Bearer " + data.token;
+
+    return data;
   } catch (err) {
     if (err.response.data) throw err.response.data;
 
