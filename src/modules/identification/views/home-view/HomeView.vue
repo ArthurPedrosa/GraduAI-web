@@ -10,7 +10,7 @@
 
     <AttributesArea />
 
-    <Divider />
+    <Divider ref="analisis" />
 
     <AboutAnalysisArea />
 
@@ -40,6 +40,15 @@ export default {
     AboutAnalysisArea,
     AboutCreatorsArea,
     Divider,
+  },
+
+  mounted() {
+    const { scrollTo } = this.$route.params;
+    if (scrollTo) {
+      const position = this.$refs.analisis.$el.getBoundingClientRect().top;
+
+      window.scrollTo(0, position);
+    }
   },
 };
 </script>

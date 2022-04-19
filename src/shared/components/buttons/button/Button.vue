@@ -5,7 +5,7 @@
     :small="small"
     :color="color"
     class="px-6"
-    :style="{ width }"
+    :style="{ width, minWidth }"
     @click="() => $emit('click')"
   >
     <slot />
@@ -33,6 +33,10 @@ export default {
       default: false,
     },
     width: {
+      type: String,
+      default: "",
+    },
+    minWidth: {
       type: String,
       default: "",
     },

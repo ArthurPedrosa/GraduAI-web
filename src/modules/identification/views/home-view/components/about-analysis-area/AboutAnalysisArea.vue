@@ -3,7 +3,7 @@
   <v-container>
     <v-row>
       <v-col align="center">
-        <SubTitle class="primary--text">Sobre a Análise</SubTitle>
+        <SubTitle class="primary--text mb-8">Sobre a Análise</SubTitle>
         <div class="container">
           <CardText>
             <TextDefault class="font-weight-bold">
