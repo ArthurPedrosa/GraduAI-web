@@ -13,6 +13,7 @@ describe("Verify home page load", () => {
   });
 
   it("successfully change routes", () => {
+    cy.visit("/");
     cy.get("#start").click();
     cy.get("#home").click();
     cy.get("#login").click();
