@@ -18,7 +18,8 @@ router.beforeEach((to, from, next) => {
     "/login/recover-password",
   ];
   const authRequired = !IdentificationRoutes.includes(to.path);
-  const loggedIn = !!JSON.parse(localStorage.vuex).Identification.token;
+  const loggedIn =
+    localStorage.vuex && !!JSON.parse(localStorage.vuex).Identification.token;
 
   if (loggedIn && !authRequired) {
     next("/");
