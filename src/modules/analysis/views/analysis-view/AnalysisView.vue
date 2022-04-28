@@ -24,15 +24,15 @@
     <div class="stepper-area mb-4">
       <StepperForm
         :stepper-data="STEPPER_DATA"
-        :actual-level="actualLevel.level"
+        :actual-level="actualLevel.id"
         @click:change-level="changeLevel"
         @click:next-level="changeLevel"
       >
-        <FormProfile v-if="actualLevel.level === 1" />
-        <div v-else-if="actualLevel.level === 2">Aqui é os Dados Pessoais</div>
-        <div v-else-if="actualLevel.level === 3">Aqui é a Universidades</div>
-        <div v-else-if="actualLevel.level === 4">Aqui é a Revisão</div>
-        <div v-else-if="actualLevel.level === 5">Aqui é os Resultados</div>
+        <ProfileForm v-if="isPerfil" />
+        <PersonalDataForm v-else-if="isPersonalData" />
+        <CollegeForm v-else-if="isCollege" />
+        <RevisionForm v-else-if="isRevision" />
+        <ResultForm v-else-if="isResult" />
       </StepperForm>
     </div>
   </v-container>
@@ -40,54 +40,92 @@
 
 <script>
 import { InfoIcon, TextDefault } from "$shared/components";
-import { FormProfile } from "./components";
+import {
+  ProfileForm,
+  PersonalDataForm,
+  CollegeForm,
+  RevisionForm,
+  ResultForm,
+} from "./components";
 import { mapGetters } from "vuex";
 import { StepperForm } from "$modules/analysis/components";
 
 export default {
   name: "Analysis",
-  components: { InfoIcon, TextDefault, StepperForm, FormProfile },
+
+  components: {
+    InfoIcon,
+    TextDefault,
+    StepperForm,
+    ProfileForm,
+    PersonalDataForm,
+    CollegeForm,
+    RevisionForm,
+    ResultForm,
+  },
 
   created() {
     this.STEPPER_DATA = [
       {
-        level: 1,
-        label: "Perfil",
-        subtitle:
-          "Crie um perfil ou selecione um já existente para começar a análise.",
-        disabled: false,
-      },
-      {
-        level: 2,
+        id: 2,
         label: "Dados Pessoais",
         subtitle: "Informe os dados pessoais.",
         disabled: false,
       },
       {
-        level: 3,
+        id: 3,
         label: "Universidades",
         subtitle: "Informe dados da universidade.",
         disabled: false,
       },
       {
-        level: 4,
+        id: 4,
         label: "Revisão",
         subtitle: "Revise os dados informados.",
         disabled: false,
       },
       {
-        level: 5,
+        id: 5,
         label: "Resultados",
         subtitle: "Aqui estão os resultados obtidos.",
         disabled: false,
       },
     ];
+
+    if (this.isLoggedIn)
+      this.STEPPER_DATA.unshift({
+        id: 1,
+        label: "Perfil",
+        subtitle:
+          "Crie um perfil ou selecione um já existente para começar a análise.",
+        disabled: false,
+      });
   },
 
   computed: {
     ...mapGetters({
       isLoggedIn: "Identification/isLoggedIn",
     }),
+
+    isPerfil() {
+      return this.actualLevel.label === "Perfil";
+    },
+
+    isPersonalData() {
+      return this.actualLevel.label === "Dados Pessoais";
+    },
+
+    isCollege() {
+      return this.actualLevel.label === "Universidades";
+    },
+
+    isRevision() {
+      return this.actualLevel.label === "Revisão";
+    },
+
+    isResult() {
+      return this.actualLevel.label === "Resultados";
+    },
   },
 
   data: () => ({
@@ -95,19 +133,18 @@ export default {
   }),
 
   mounted() {
-    this.actualLevel = this.isLoggedIn
-      ? this.STEPPER_DATA[0]
-      : this.STEPPER_DATA[1];
+    this.actualLevel = this.STEPPER_DATA[0];
+    console.log(this.actualLevel);
   },
 
   methods: {
-    changeLevel(pNewValue) {
-      const hasSelectedLevel = this.STEPPER_DATA.find(
-        (stepper) => stepper.level === pNewValue
+    changeLevel(pNewId) {
+      const hasSelected = this.STEPPER_DATA.find(
+        (stepper) => stepper.id === pNewId
       );
 
-      if (hasSelectedLevel) {
-        this.actualLevel = hasSelectedLevel;
+      if (hasSelected) {
+        this.actualLevel = hasSelected;
       }
     },
 

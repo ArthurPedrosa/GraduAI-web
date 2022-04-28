@@ -1,7 +1,7 @@
 <style lang="scss" src="./ButtonText.scss" scoped></style>
 
 <template>
-  <button class="btn" @click="() => $emit('click')">
+  <button :id="id" class="btn" @click="() => $emit('click')">
     <TextDefault class="font-weight-bold">
       <slot />
     </TextDefault>
@@ -14,6 +14,12 @@ export default {
   name: "ButtonText",
   components: {
     TextDefault,
+  },
+  props: {
+    id: {
+      type: String,
+      default: "",
+    },
   },
 };
 </script>

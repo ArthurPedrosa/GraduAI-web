@@ -14,11 +14,17 @@
         </TextDefault>
 
         <v-row justify="center" class="mt-5">
-          <Button class="mr-2" color="success" @click="goToRoute('/analysis')">
+          <Button
+            id="start"
+            class="mr-2"
+            color="success"
+            @click="goToRoute('/analysis')"
+          >
             Começar
           </Button>
 
           <Button
+            id="login"
             v-if="!isLoggedIn"
             outlined
             class="ml-2"

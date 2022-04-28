@@ -34,6 +34,7 @@
           <TextDefault class="my-5">
             Faça a análise sem a necessidade de registrar-se, clicando
             <ButtonText
+              id="analisys"
               class="warning--text"
               @click="() => $router.push('/analysis').catch(() => {})"
             >

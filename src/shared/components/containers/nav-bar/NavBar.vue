@@ -2,6 +2,7 @@
   <v-app-bar app color="forecolor" class="py-0" elevation="1">
     <div class="d-flex align-center">
       <v-btn
+        id="home"
         text
         class="text-capitalize"
         @click="$router.push('/').catch(() => {})"

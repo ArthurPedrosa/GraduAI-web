@@ -7,23 +7,23 @@
         v-for="(stepper, index) in stepperData"
         :key="index"
         class="level-button mx-2"
-        @click="emitChangeLevel(stepper.level)"
+        @click="emitChangeLevel(stepper.id)"
       >
         <TextDefault
           class="font-weight-medium text-color text-subtitle-2 ml-sm-2"
           :class="{
-            'primary--text': actualLevel >= stepper.level,
-            opacity: actualLevel > stepper.level,
+            'primary--text': actualLevel >= stepper.id,
+            opacity: actualLevel > stepper.id,
           }"
         >
-          {{ stepper.level }}
+          {{ index + 1 }}
           <span class="hidden-xs-only">. {{ stepper.label }}</span>
         </TextDefault>
         <div
           class="level-bar"
           :class="{
-            primary: actualLevel >= stepper.level,
-            opacity: actualLevel > stepper.level,
+            primary: actualLevel >= stepper.id,
+            opacity: actualLevel > stepper.id,
           }"
         />
       </button>
@@ -35,12 +35,10 @@
       </div>
 
       <div class="stepper-content-footer mx-5">
-        <TextDefault> * Campos de preenchimento obrigatórios </TextDefault>
-
         <Button
           small
           outlined
-          class="mb-2 mt-2"
+          class="ml-auto mb-2 mt-2"
           color="primary"
           @click="emitNextLevel"
         >
@@ -79,7 +77,7 @@ export default {
     },
 
     emitNextLevel() {
-      const maxLevel = this.stepperData[this.stepperData.length - 1].level;
+      const maxLevel = this.stepperData[this.stepperData.length - 1].id;
 
       if (this.actualLevel >= maxLevel) {
         this.$emit("click:next-level", maxLevel);
