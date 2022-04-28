@@ -10,7 +10,7 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <Input
-        v-model="computedDateFormatted"
+        v-model="dateFormatted"
         :label="label"
         :icon="icon"
         :bind="attrs"
@@ -22,9 +22,9 @@
 
     <v-date-picker v-model="inputValue" no-title scrollable>
       <v-spacer></v-spacer>
-      <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
+      <v-btn text color="primary" @click="menu = false"> Cancelar </v-btn>
       <v-btn text color="primary" @click="$refs.menu.save(inputValue)">
-        OK
+        Confirmar
       </v-btn>
     </v-date-picker>
   </v-menu>
@@ -37,15 +37,6 @@ export default {
   components: { Input },
 
   extends: Input,
-
-  data: () => ({
-    inputValue: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-      .toISOString()
-      .substr(0, 10),
-    menu: false,
-    modal: false,
-    menu2: false,
-  }),
 
   props: {
     id: {
@@ -61,11 +52,24 @@ export default {
       default: "Data",
     },
   },
+
   computed: {
-    computedDateFormatted() {
-      return this.formatDate(this.inputValue);
+    dateFormatted: {
+      get: function () {
+        return this.formatDate(this.inputValue);
+      },
+      set: function () {},
     },
   },
+
+  data: () => ({
+    inputValue: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    menu: false,
+    modal: false,
+    menu2: false,
+  }),
 
   methods: {
     formatDate(pDate) {
@@ -73,13 +77,6 @@ export default {
 
       const [year, month, day] = pDate.split("-");
       return `${day}/${month}/${year}`;
-    },
-
-    parseDate(pDate) {
-      if (!pDate) return null;
-
-      const [month, day, year] = pDate.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
   },
 };
