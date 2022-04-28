@@ -1,18 +1,22 @@
 <template>
-  <v-container id="input-usage" fluid class="pa-0">
+  <v-container fluid class="pa-0" :style="{ width, minWidth, maxWidth }">
     <v-row>
-      <v-col cols="12" class="pa-0" align="start">
+      <v-col class="pa-0" align="start">
         <v-input>
           <v-text-field
             v-model="inputValue"
+            :id="`input-${id}`"
             :label="label"
             :rules="getRules"
             :type="type"
             :prepend-inner-icon="icon"
             :append-icon="appendIcon"
+            :readonly="readonly"
             outlined
             dense
             :autocomplete="autoComplete"
+            v-bind="bind"
+            v-on="on"
             @click:append="$emit('click-append')"
           />
         </v-input>
@@ -26,6 +30,10 @@ export default {
   name: "Input",
 
   props: {
+    id: {
+      type: String,
+      default: "email",
+    },
     label: {
       type: String,
       default: "",
@@ -45,6 +53,10 @@ export default {
     value: {
       default: undefined,
     },
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
     appendIcon: {
       type: String,
       default: "",
@@ -52,6 +64,24 @@ export default {
     autoComplete: {
       type: String,
       default: "",
+    },
+    width: {
+      type: String,
+      default: "",
+    },
+    minWidth: {
+      type: String,
+      default: "100px",
+    },
+    maxWidth: {
+      type: String,
+      default: "",
+    },
+    bind: {
+      default: undefined,
+    },
+    on: {
+      default: undefined,
     },
   },
 
