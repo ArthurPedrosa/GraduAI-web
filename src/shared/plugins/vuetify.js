@@ -2,11 +2,17 @@ import "font-awesome/css/font-awesome.min.css";
 import Vue from "vue";
 import Vuetify from "vuetify/lib/framework";
 
+import pt from "vuetify/lib/locale/pt";
+
 Vue.use(Vuetify);
 
 export default new Vuetify({
   icons: {
     iconfont: "fa4",
+  },
+  lang: {
+    locales: { pt },
+    current: "pt",
   },
   theme: {
     themes: {

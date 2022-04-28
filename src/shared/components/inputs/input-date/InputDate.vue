@@ -16,6 +16,7 @@
         :bind="attrs"
         :on="on"
         readonly
+        :style="{ width, minWidth, maxWidth }"
       />
     </template>
 
