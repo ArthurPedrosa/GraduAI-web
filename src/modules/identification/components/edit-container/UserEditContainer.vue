@@ -33,11 +33,12 @@
                 </v-list-item-icon>
                 Termos de uso
               </v-list-item>
-              <div class="user-edit-list-footer">
-                <TextDefault class="text-center user-list-footer-content">
-                  Versão 0.0.1
-                </TextDefault>
-              </div>
+
+              <TextDefault
+                class="user-edit-list-footer text-center user-list-footer-content"
+              >
+                Versão 0.0.1
+              </TextDefault>
             </v-list-item-group>
           </v-list>
         </CardDefault>
@@ -49,7 +50,7 @@
         sm="12"
         order="first"
         order-md="last"
-        class="user-edit-form"
+        class="user-edit-form pr-3 pr-md-16"
       >
         <CardDefault> <slot></slot> </CardDefault>
       </v-col>
