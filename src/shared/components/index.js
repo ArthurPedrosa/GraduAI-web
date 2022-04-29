@@ -1,4 +1,5 @@
 export * from "./avatars";
+export * from "./auto-completes";
 export * from "./inputs";
 export * from "./cards";
 export * from "./buttons";

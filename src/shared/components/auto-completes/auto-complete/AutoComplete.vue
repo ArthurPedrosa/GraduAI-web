@@ -1,23 +1,23 @@
 <template>
-  <v-container fluid class="pa-0" :style="{ width, minWidth, maxWidth }">
+  <v-container
+    id="input-usage"
+    fluid
+    class="pa-0"
+    :style="{ width, minWidth, maxWidth }"
+  >
     <v-row>
-      <v-col class="pa-0" align="start">
+      <v-col cols="12" class="py-0" align="start">
         <v-input>
-          <v-text-field
+          <v-autocomplete
             v-model="inputValue"
-            :id="`input-${id}`"
             :label="label"
+            :items="items"
             :rules="getRules"
-            :type="type"
-            :prepend-inner-icon="icon"
-            :append-icon="appendIcon"
-            :readonly="readonly"
+            :multiple="multiple"
+            no-data-text="Não há resultados disponíveis"
             outlined
             dense
-            :autocomplete="autoComplete"
-            v-bind="bind"
-            v-on="on"
-            @click:append="$emit('click-append')"
+            small-chips
           />
         </v-input>
       </v-col>
@@ -27,61 +27,51 @@
 
 <script>
 export default {
-  name: "Input",
+  name: "AutoComplete",
 
   props: {
-    id: {
-      type: String,
-      default: "email",
-    },
     label: {
       type: String,
       default: "",
     },
+
     rules: {
       type: Array,
       default: () => [],
     },
-    type: {
-      type: String,
-      default: "text",
-    },
+
     icon: {
       type: String,
       default: "",
     },
+
     value: {
       default: undefined,
     },
-    readonly: {
+
+    items: {
+      type: Array,
+      default: () => [],
+    },
+
+    multiple: {
       type: Boolean,
       default: false,
     },
-    appendIcon: {
-      type: String,
-      default: "",
-    },
-    autoComplete: {
-      type: String,
-      default: "",
-    },
+
     width: {
       type: String,
       default: "",
     },
+
     minWidth: {
       type: String,
       default: "100px",
     },
+
     maxWidth: {
       type: String,
       default: "",
-    },
-    bind: {
-      default: undefined,
-    },
-    on: {
-      default: undefined,
     },
   },
 

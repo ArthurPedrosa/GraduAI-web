@@ -1,6 +1,7 @@
 <template>
   <Input
     v-model="inputValue"
+    :id="id"
     :label="label"
     :append-icon="hide ? 'mdi-eye' : 'mdi-eye-off'"
     :rules="getRules"
@@ -22,6 +23,10 @@ export default {
   extends: Input,
 
   props: {
+    id: {
+      type: String,
+      default: "password",
+    },
     type: {
       type: String,
       default: "password",

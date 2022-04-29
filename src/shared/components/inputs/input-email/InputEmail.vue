@@ -9,6 +9,10 @@ export default {
   extends: Input,
 
   props: {
+    id: {
+      type: String,
+      default: "email",
+    },
     icon: {
       type: String,
       default: "fa-at",

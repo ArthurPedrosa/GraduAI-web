@@ -1,5 +1,6 @@
 <template>
   <v-btn
+    :id="id"
     :rounded="rounded"
     :outlined="outlined"
     :small="small"
@@ -16,6 +17,10 @@
 export default {
   name: "Button",
   props: {
+    id: {
+      type: String,
+      default: "",
+    },
     color: {
       type: String,
       default: "success",

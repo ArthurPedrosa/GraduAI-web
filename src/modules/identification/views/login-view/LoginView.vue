@@ -28,6 +28,7 @@
         />
 
         <ButtonText
+          id="recover-password"
           class="primary--text position-button"
           @click="goToRoute('/login/recover-password')"
         >
@@ -37,6 +38,7 @@
 
       <div class="d-flex flex-column align-center footer-card">
         <Button
+          id="login"
           small
           outlined
           class="mb-2 mt-2"
@@ -48,6 +50,7 @@
         </Button>
 
         <Button
+          id="register"
           small
           outlined
           class="mt-2"
