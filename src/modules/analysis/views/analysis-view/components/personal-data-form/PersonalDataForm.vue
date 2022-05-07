@@ -24,7 +24,7 @@
 
       <AutoComplete label="Municipio" minWidth="150px" maxWidth="350px" />
 
-      <AutoComplete label="Estado" minWidth="150px" maxWidth="350px" />
+      <AutoCompleteUfs label="Estado" minWidth="150px" maxWidth="350px" />
 
       <AutoComplete label="Naturalidade" minWidth="150px" maxWidth="350px" />
     </div>
@@ -32,10 +32,15 @@
 </template>
 
 <script>
-import { AutoComplete, Input, InputDate } from "$shared/components";
+import {
+  AutoComplete,
+  AutoCompleteUfs,
+  Input,
+  InputDate,
+} from "$shared/components";
 
 export default {
   name: "PersonalDataForm",
-  components: { Input, AutoComplete, InputDate },
+  components: { Input, AutoComplete, AutoCompleteUfs, InputDate },
 };
 </script>

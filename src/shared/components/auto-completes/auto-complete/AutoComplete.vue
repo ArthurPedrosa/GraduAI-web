@@ -14,6 +14,8 @@
             :items="items"
             :rules="getRules"
             :multiple="multiple"
+            :item-text="itemText"
+            :item-value="itemValue"
             no-data-text="Não há resultados disponíveis"
             outlined
             dense
@@ -72,6 +74,16 @@ export default {
     maxWidth: {
       type: String,
       default: "",
+    },
+
+    itemValue: {
+      type: String,
+      default: "id",
+    },
+
+    itemText: {
+      type: String,
+      default: "name",
     },
   },
 
