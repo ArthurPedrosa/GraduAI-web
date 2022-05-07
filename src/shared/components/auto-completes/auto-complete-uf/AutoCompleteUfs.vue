@@ -39,20 +39,20 @@ export default {
 
   data() {
     return {
-      data: [],
+      dataList: [],
     };
   },
 
   computed: {
     getItems() {
-      return this.data;
+      return this.dataList;
     },
   },
 
   async mounted() {
     const [uf] = await GET_UFS();
 
-    this.data = uf;
+    this.dataList = uf;
   },
 };
 </script>
