@@ -1,4 +1,5 @@
 export default {
+  stepper: undefined,
   analisys: {
     personalData: {
       name: undefined,

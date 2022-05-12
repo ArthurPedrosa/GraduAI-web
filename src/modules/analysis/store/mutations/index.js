@@ -11,7 +11,17 @@ export default {
     };
   },
 
-  clearPersonalData(state) {
+  setStepperLevel(state, level) {
+    state.stepper = level;
+  },
+
+  clearStepperLevel(state) {
+    state.stepper = undefined;
+  },
+
+  clearAnalisysForm(state) {
+    this.clearStepperLevel();
+
     state.analisys.personalData = {
       name: undefined,
       sex: undefined,

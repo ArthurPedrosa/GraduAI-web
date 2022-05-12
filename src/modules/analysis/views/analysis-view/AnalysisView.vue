@@ -105,6 +105,7 @@ export default {
   computed: {
     ...mapGetters({
       isLoggedIn: "Identification/isLoggedIn",
+      getStepperLevel: "Analysis/getStepperLevel",
     }),
 
     isPerfil() {
@@ -133,7 +134,11 @@ export default {
   }),
 
   mounted() {
-    this.actualLevel = this.STEPPER_DATA[0];
+    if (this.getStepperLevel) {
+      this.actualLevel = this.getStepperLevel;
+    } else {
+      this.actualLevel = this.STEPPER_DATA[0];
+    }
   },
 
   methods: {
@@ -143,6 +148,7 @@ export default {
       );
 
       if (hasSelected) {
+        this.$store.commit("Analysis/setStepperLevel", hasSelected);
         this.actualLevel = hasSelected;
       }
     },

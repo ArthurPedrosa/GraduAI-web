@@ -55,7 +55,7 @@ export default {
 
   methods: {
     clearStore() {
-      this.$store.commit("Analysis/clearPersonalData");
+      this.$store.commit("Analysis/clearAnalisysForm");
     },
   },
 };
