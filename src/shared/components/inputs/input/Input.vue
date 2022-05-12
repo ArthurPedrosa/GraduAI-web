@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0" :style="{ width, minWidth, maxWidth }">
     <v-row>
-      <v-col class="pa-0" align="start">
+      <v-col class="py-0" align="start">
         <v-input>
           <v-text-field
             v-model="inputValue"

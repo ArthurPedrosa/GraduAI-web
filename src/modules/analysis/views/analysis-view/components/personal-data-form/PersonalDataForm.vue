@@ -6,78 +6,65 @@
     class="personal-data-form d-flex flex-column py-15 px-5"
   >
     <div class="d-flex fields-area">
-      <Input
-        v-model="form.name"
-        label="Nome"
-        minWidth="250px"
-        width="55%"
-        maxWidth="700px"
-        @blur="setStore"
-      />
+      <v-row>
+        <v-col cols="12" md="6">
+          <Input v-model="form.name" label="Nome" @blur="setStore" />
+        </v-col>
+        <v-col cols="12" md="3">
+          <AutoComplete v-model="form.sex" label="Sexo" @blur="setStore" />
+        </v-col>
+        <v-col cols="12" md="3">
+          <AutoComplete v-model="form.race" label="Raça" @blur="setStore" />
+        </v-col>
+      </v-row>
 
-      <AutoComplete
-        v-model="form.sex"
-        label="Sexo"
-        minWidth="150px"
-        maxWidth="250px"
-        @blur="setStore"
-      />
+      <v-row>
+        <v-col cols="12" md="4">
+          <InputDate
+            v-model="form.birthDate"
+            label="Data de Nascimento"
+            @blur="setStore"
+          />
+        </v-col>
 
-      <AutoComplete
-        v-model="form.race"
-        label="Raça"
-        minWidth="150px"
-        maxWidth="250px"
-        @blur="setStore"
-      />
+        <v-col cols="12" md="4">
+          <AutoComplete
+            v-model="form.socialSupport"
+            label="Apoio Social"
+            @blur="setStore"
+          />
+        </v-col>
 
-      <InputDate
-        v-model="form.birthDate"
-        label="Data de Nascimento"
-        minWidth="150px"
-        maxWidth="350px"
-        @blur="setStore"
-      />
+        <v-col cols="12" md="4">
+          <AutoComplete
+            v-model="form.extraCurricular"
+            label="Atividades Extras Curriculares"
+            @blur="setStore"
+          />
+        </v-col>
+      </v-row>
 
-      <AutoComplete
-        v-model="form.socialSupport"
-        label="Apoio Social"
-        minWidth="150px"
-        maxWidth="350px"
-        @blur="setStore"
-      />
+      <v-row>
+        <v-col cols="12" md="4">
+          <AutoCompleteUfs v-model="form.uf" label="Estado" @blur="setStore" />
+        </v-col>
 
-      <AutoComplete
-        v-model="form.extraCurricular"
-        label="Atividades Extras Curriculares"
-        minWidth="150px"
-        maxWidth="500px"
-        @blur="setStore"
-      />
+        <v-col cols="12" md="4">
+          <AutoComplete
+            v-model="form.city"
+            label="Municipio"
+            @blur="setStore"
+          />
+        </v-col>
 
-      <AutoCompleteUfs
-        v-model="form.uf"
-        label="Estado"
-        minWidth="150px"
-        maxWidth="350px"
-        @blur="setStore"
-      />
-
-      <AutoComplete
-        v-model="form.city"
-        label="Municipio"
-        minWidth="150px"
-        maxWidth="350px"
-        @blur="setStore"
-      />
-
-      <AutoComplete
-        v-model="form.naturality"
-        label="Naturalidade"
-        minWidth="150px"
-        maxWidth="350px"
-        @blur="setStore"
-      />
+        <v-col cols="12" md="4">
+          <AutoComplete
+            v-model="form.naturality"
+            label="Naturalidade"
+            @blur="setStore"
+          />
+        </v-col>
+      </v-row>
     </div>
   </v-form>
 </template>
