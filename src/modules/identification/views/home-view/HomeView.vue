@@ -48,7 +48,15 @@ export default {
       const position = this.$refs.analisis.$el.getBoundingClientRect().top;
 
       window.scrollTo(0, position);
+    } else {
+      this.clearStore();
     }
+  },
+
+  methods: {
+    clearStore() {
+      this.$store.commit("Analysis/clearPersonalData");
+    },
   },
 };
 </script>

@@ -17,6 +17,7 @@
         :on="on"
         readonly
         :style="{ width, minWidth, maxWidth }"
+        @blur="$emit('blur')"
       />
     </template>
 

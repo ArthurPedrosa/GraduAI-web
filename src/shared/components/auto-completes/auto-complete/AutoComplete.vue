@@ -20,6 +20,7 @@
             outlined
             dense
             small-chips
+            @blur="$emit('blur')"
           />
         </v-input>
       </v-col>

@@ -10,6 +10,7 @@
     :maxWidth="maxWidth"
     :item-text="itemText"
     :item-value="itemValue"
+    @blur="$emit('blur')"
   />
 </template>
 

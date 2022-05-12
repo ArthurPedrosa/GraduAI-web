@@ -29,7 +29,7 @@
         @click:next-level="changeLevel"
       >
         <ProfileForm v-if="isPerfil" />
-        <PersonalDataForm v-else-if="isPersonalData" />
+        <PersonalDataForm ref="personal-data" v-else-if="isPersonalData" />
         <CollegeForm v-else-if="isCollege" />
         <RevisionForm v-else-if="isRevision" />
         <ResultForm v-else-if="isResult" />
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { InfoIcon, TextDefault } from "$shared/components";
 import {
   ProfileForm,
@@ -47,7 +48,6 @@ import {
   RevisionForm,
   ResultForm,
 } from "./components";
-import { mapGetters } from "vuex";
 import { StepperForm } from "$modules/analysis/components";
 
 export default {
@@ -134,7 +134,6 @@ export default {
 
   mounted() {
     this.actualLevel = this.STEPPER_DATA[0];
-    console.log(this.actualLevel);
   },
 
   methods: {

@@ -18,6 +18,7 @@
             v-bind="bind"
             v-on="on"
             @click:append="$emit('click-append')"
+            @blur="$emit('blur')"
           />
         </v-input>
       </v-col>
