@@ -3,7 +3,7 @@ import api from "$shared/services/api";
 
 const loginUser = async (store, { email, password }) => {
   try {
-    const { data } = await api.post("/access-control/login", {
+    const { data } = await api.post("/access-control/", {
       email,
       password,
     });

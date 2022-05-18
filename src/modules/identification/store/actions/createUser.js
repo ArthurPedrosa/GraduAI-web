@@ -5,7 +5,7 @@ const createUser = async (
   { name, email, password, passwordConfirmation }
 ) => {
   try {
-    const response = await api.post("/access-control/create", {
+    const response = await api.post("/access-control/new", {
       name,
       email,
       password,
