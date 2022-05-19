@@ -3,6 +3,7 @@ import LoginView from "$modules/identification/views/login-view/LoginView.vue";
 import RegisterView from "$modules/identification/views/register-view/RegisterView.vue";
 import RecoverPasswordView from "$modules/identification/views/recover-password-view/RecoverPasswordView.vue";
 import UserEditView from "$modules/identification/views/edit-view/UserEditView.vue";
+import ResetPasswordView from "$modules/identification/views/reset-password-view/ResetPasswordView.vue";
 import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {
@@ -40,6 +41,16 @@ export const RecoverPasswordRoute = {
   name: "RecoverPassword",
   components: {
     default: RecoverPasswordView,
+    NavBar,
+    Footer,
+  },
+};
+
+export const ResetPasswordRoute = {
+  path: "/login/reset-password/:token",
+  name: "ResetPassword",
+  components: {
+    default: ResetPasswordView,
     NavBar,
     Footer,
   },

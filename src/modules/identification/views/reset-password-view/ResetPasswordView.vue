@@ -1,7 +1,7 @@
 <template>
   <AuthenticateContainer
-    title-card="Recuperação de Senha"
-    subtitle="Digite seu email cadastrado para receber um email de recuperação de senha."
+    title-card="Alteração de Senha"
+    subtitle="Digite a nova senha do seu usuário."
   >
     <v-form
       ref="form"
@@ -11,27 +11,27 @@
       <div
         class="pa-10 d-flex flex-column align-start justify-center flex-grow-1"
       >
-        <InputEmail
-          v-model="form.email"
-          v-if="!sended"
-          label="E-mail"
+        <InputPassword
+          v-model="form.password"
           class="mb-2"
           :rules="[$rulesValidations.required]"
         />
-        <TextDefault v-else>
-          Enviamos um e-mail de recuparação de senha para você.
-        </TextDefault>
+
+        <InputPassword
+          v-model="form.passwordConfirmation"
+          label="Confirme sua senha"
+          :rules="[pswdConfirmationValidation]"
+        />
       </div>
 
       <div class="d-flex flex-column align-center footer-card">
         <Button
-          v-if="!sended"
           small
           outlined
           class="mb-2 mt-2"
           color="primary"
           width="60%"
-          @click="sendRecover"
+          @click="resetPassword"
         >
           Enviar
         </Button>
@@ -42,7 +42,7 @@
           class="mt-2"
           color="danger"
           width="60%"
-          @click="goToRoute('/login')"
+          @click="goToLogin"
         >
           Voltar
         </Button>
@@ -53,44 +53,55 @@
 
 <script>
 import { AuthenticateContainer } from "$modules/identification/components";
-import { Button, InputEmail, TextDefault } from "$shared/components";
+import { Button, InputPassword } from "$shared/components";
 
 export default {
   name: "RecoverPassword",
   components: {
     AuthenticateContainer,
     Button,
-    InputEmail,
-    TextDefault,
+    InputPassword,
   },
 
   data: () => ({
-    sended: false,
     form: {
-      email: undefined,
+      password: undefined,
+      passwordConfirmation: undefined,
     },
   }),
 
-  mounted() {
-    this.sended = false;
-  },
-
   methods: {
-    goToRoute(pRouteName) {
-      if (pRouteName) {
-        this.$router.push({ path: pRouteName });
-      }
+    goToLogin() {
+      this.$router.push("/login");
     },
 
-    async sendRecover() {
+    pswdConfirmationValidation(value) {
+      return (
+        (value && value == this.form.password) || "As senhas não coincidem."
+      );
+    },
+
+    async resetPassword() {
       try {
         const isValid = this.$refs.form.validate();
 
         if (isValid) {
-          await this.$store.dispatch("Identification/RECOVER_PASSWORD", {
-            email: this.form.email,
+          const { token } = this.$route.params;
+
+          await this.$store.dispatch("Identification/RESET_PASSWORD", {
+            token,
+            password: this.form.password,
+            passwordConfirmation: this.form.passwordConfirmation,
           });
-          this.sended = true;
+
+          this.$notify({
+            group: "app",
+            type: "success",
+            title: "Senha Alterada!",
+            text: "Sua senha foi alterada com sucesso.",
+          });
+
+          this.goToLogin();
         }
       } catch (err) {
         this.$notify({
