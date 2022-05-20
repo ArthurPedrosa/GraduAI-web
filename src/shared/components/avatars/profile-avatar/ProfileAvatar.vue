@@ -25,7 +25,9 @@
 
               <v-divider class="my-3" />
 
-              <v-btn depressed rounded text> Editar Informações </v-btn>
+              <v-btn depressed rounded text @click="edit">
+                Editar Informações
+              </v-btn>
 
               <v-divider class="my-3" />
 
@@ -84,6 +86,9 @@ export default {
           text: err.message || "",
         });
       }
+    },
+    edit() {
+      this.$router.push("/user/edit").catch(() => {});
     },
   },
 };
