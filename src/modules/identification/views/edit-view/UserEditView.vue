@@ -4,8 +4,8 @@
     subtitle="Aqui estão os seus dados cadastrados"
   >
     <v-form ref="editForm" lazy-validation class="pa-10">
-      <v-row justify="center" class="pt-3">
-        <v-col cols="12" md="5">
+      <v-row justify="center" class="pt-md-3 pt-1">
+        <v-col cols="10" md="5">
           <InputEmail
             v-model="form.email"
             label="E-mail"
@@ -14,8 +14,8 @@
           />
         </v-col>
       </v-row>
-      <v-row justify="center" class="pt-3">
-        <v-col cols="12" md="5"
+      <v-row justify="center" class="pt-md-3 pt-1">
+        <v-col cols="10" md="5"
           ><InputPassword
             v-model="form.password"
             label="Senha"
@@ -25,11 +25,13 @@
       </v-row>
 
       <v-row align="center" justify="space-between">
-        <v-col cols="12" md="4">
-          <TextDefault>* Campos de preenchimento obrigatórios</TextDefault>
+        <v-col cols="6" md="4">
+          <TextDefault class="caption"
+            >* Campos de preenchimento obrigatórios</TextDefault
+          >
         </v-col>
 
-        <v-col cols="12" md="4" class="d-flex justify-end">
+        <v-col cols="5" md="4" class="d-flex justify-end">
           <Button
             small
             outlined
@@ -37,7 +39,7 @@
             color="success"
             @click="goToRoute('/login/register')"
           >
-            Continuar
+            Atualizar
           </Button>
         </v-col>
       </v-row>
