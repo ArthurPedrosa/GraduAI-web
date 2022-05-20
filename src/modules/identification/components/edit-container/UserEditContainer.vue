@@ -3,9 +3,14 @@
   <v-container fluid class="user-edit-container">
     <v-row class="mt-7 mb-7 user-edit-header">
       <v-spacer></v-spacer>
-      <v-col offset-md="3" md="7" cols="12" align="center"
-        ><Title>{{ title }}</Title>
-        <SubTitle>{{ subtitle }}</SubTitle>
+      <v-col offset-md="3" md="7" cols="12" align="center">
+        <TextDefault class="text-h4 font-weight-bold text-center mt-8">
+          {{ title }}
+        </TextDefault>
+
+        <TextDefault class="text-center mb-8">
+          {{ subtitle }}
+        </TextDefault>
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
@@ -59,12 +64,10 @@
 </template>
 
 <script>
-import { Title, SubTitle, CardDefault, TextDefault } from "$shared/components";
+import { CardDefault, TextDefault } from "$shared/components";
 export default {
   name: "UserEditContainer",
   components: {
-    Title,
-    SubTitle,
     CardDefault,
     TextDefault,
   },
