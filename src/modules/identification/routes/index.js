@@ -3,11 +3,8 @@ import LoginView from "$modules/identification/views/login-view/LoginView.vue";
 import RegisterView from "$modules/identification/views/register-view/RegisterView.vue";
 import RecoverPasswordView from "$modules/identification/views/recover-password-view/RecoverPasswordView.vue";
 import UserEditView from "$modules/identification/views/edit-view/UserEditView.vue";
-<<<<<<< HEAD
 import AgreementView from "$modules/identification/views/agreement-view/AgreementView.vue";
-=======
 import ResetPasswordView from "$modules/identification/views/reset-password-view/ResetPasswordView.vue";
->>>>>>> e203233578bcca6e7f9615ed01744f7b6fe10ea0
 import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {
