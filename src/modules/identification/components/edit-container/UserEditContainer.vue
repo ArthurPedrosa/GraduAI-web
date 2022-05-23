@@ -26,13 +26,13 @@
         <CardDefault>
           <v-list>
             <v-list-item-group color="primary">
-              <v-list-item>
+              <v-list-item @click="goToRoute('/user/edit')">
                 <v-list-item-icon
                   ><v-icon>fa-id-card-o</v-icon>
                 </v-list-item-icon>
                 Dados Cadastrais
               </v-list-item>
-              <v-list-item>
+              <v-list-item @click="goToRoute('/agreement')">
                 <v-list-item-icon
                   ><v-icon>fa-handshake-o</v-icon>
                 </v-list-item-icon>
@@ -79,6 +79,13 @@ export default {
     subtitle: {
       type: String,
       default: "",
+    },
+  },
+  methods: {
+    goToRoute(pRouteName) {
+      if (pRouteName) {
+        this.$router.push(pRouteName).catch(() => {});
+      }
     },
   },
 };
