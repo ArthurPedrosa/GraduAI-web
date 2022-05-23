@@ -3,6 +3,7 @@ import LoginView from "$modules/identification/views/login-view/LoginView.vue";
 import RegisterView from "$modules/identification/views/register-view/RegisterView.vue";
 import RecoverPasswordView from "$modules/identification/views/recover-password-view/RecoverPasswordView.vue";
 import UserEditView from "$modules/identification/views/edit-view/UserEditView.vue";
+import AgreementView from "$modules/identification/views/agreement-view/AgreementView.vue";
 import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {
@@ -50,6 +51,15 @@ export const UserEditRoute = {
   name: "UserEdit",
   components: {
     default: UserEditView,
+    NavBar,
+    Footer,
+  },
+};
+export const AgreementRoute = {
+  path: "/agreement",
+  name: "Agreement",
+  components: {
+    default: AgreementView,
     NavBar,
     Footer,
   },
