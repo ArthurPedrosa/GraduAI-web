@@ -20,7 +20,7 @@ export default {
   },
 
   clearAnalisysForm(state) {
-    this.clearStepperLevel();
+    state.stepper = undefined;
 
     state.analisys.personalData = {
       name: undefined,
