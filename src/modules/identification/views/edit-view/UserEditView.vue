@@ -4,7 +4,7 @@
   <UserEditContainer
     class="user-edit-view"
     title="Editar Informações"
-    subtitle="Aqui estão os seus dados cadastrados, é possivel alterar apenas  o seu nome e a sua senha "
+    subtitle="Aqui estão os seus dados, é possivel alterar apenas o seu nome ou a sua senha ou ambos."
   >
     <v-form ref="form" lazy-validation class="form-edit px-10 pt-10 pb-5">
       <div class="form">
