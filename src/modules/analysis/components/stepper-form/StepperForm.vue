@@ -29,7 +29,7 @@
       </button>
     </div>
 
-    <CardDefault class="pa-3 stepper-content">
+    <CardDefault class="pa-3 stepper-content" height="100%">
       <div class="stepper-contante-body">
         <slot />
       </div>

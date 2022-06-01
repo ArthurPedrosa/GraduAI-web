@@ -1,8 +1,22 @@
+import store from "$shared/store";
 import axios from "axios";
 import "regenerator-runtime/runtime";
 
-const api = axios.create({
-  baseURL: process.env.VUE_APP_ROOT_API,
-});
+const api = () => {
+  const token = store.getters["Identification/getToken"];
 
-export default api;
+  if (token) {
+    return axios.create({
+      baseURL: process.env.VUE_APP_ROOT_API,
+      headers: {
+        Authorization: "Bearer " + store.getters["Identification/getToken"],
+      },
+    });
+  }
+
+  return axios.create({
+    baseURL: process.env.VUE_APP_ROOT_API,
+  });
+};
+
+export default api();

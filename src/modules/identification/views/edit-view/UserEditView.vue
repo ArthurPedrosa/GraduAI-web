@@ -1,100 +1,151 @@
+<style lang="scss" src="./UserEditView.scss" scoped></style>
+
 <template>
   <UserEditContainer
-    title="Dados cadastrais"
-    subtitle="Aqui estão os seus dados cadastrados"
+    class="user-edit-view"
+    title="Editar Informações"
+    subtitle="Aqui estão os seus dados cadastrados, é possivel alterar apenas  o seu nome e a sua senha "
   >
-    <v-form ref="editForm" lazy-validation class="pa-10">
-      <v-row justify="center" class="pt-md-3 pt-1">
-        <v-col cols="10" md="5">
-          <InputEmail
-            v-model="form.email"
-            label="E-mail"
-            class="mb-2"
-            :rules="[$rulesValidations.required]"
-          />
-        </v-col>
-      </v-row>
-      <v-row justify="center" class="pt-md-3 pt-1">
-        <v-col cols="10" md="5"
-          ><InputPassword
-            v-model="form.password"
-            label="Senha"
-            :rules="[$rulesValidations.required]"
-            auto-complete="current-password"
-        /></v-col>
-      </v-row>
+    <v-form ref="form" lazy-validation class="form-edit px-10 pt-10 pb-5">
+      <div class="form">
+        <InputEmail
+          v-model="form.email"
+          label="E-mail"
+          class="mb-2"
+          disabled
+          readonly
+        />
 
-      <v-row align="center" justify="space-between">
-        <v-col cols="6" md="4">
-          <TextDefault class="caption"
-            >* Campos de preenchimento obrigatórios</TextDefault
-          >
-        </v-col>
+        <Input
+          v-model="form.name"
+          label="Nome"
+          :rules="[nameValidation, $rulesValidations.required]"
+        />
 
-        <v-col cols="5" md="4" class="d-flex justify-end">
-          <Button
-            small
-            outlined
-            class="mr-7 mb-7"
-            color="success"
-            @click="goToRoute('/login/register')"
-          >
-            Atualizar
-          </Button>
-        </v-col>
-      </v-row>
+        <InputPassword
+          v-model="form.password"
+          label="Senha"
+          :removeDefaultValidate="!form.passwordConfirmation || !form.password"
+          :rules="[
+            !!this.form.passwordConfirmation
+              ? this.$rulesValidations.required
+              : true,
+          ]"
+          auto-complete="current-password"
+        />
+
+        <InputPassword
+          v-model="form.passwordConfirmation"
+          label="Confirmação de Senha"
+          :removeDefaultValidate="!form.passwordConfirmation || !form.password"
+          :rules="[!!this.form.password ? pswdConfirmationValidation : true]"
+          auto-complete="current-password"
+        />
+      </div>
+
+      <div class="footer-edit">
+        <Button small outlined color="success" class="mr-2" @click="edit">
+          Atualizar
+        </Button>
+      </div>
     </v-form>
   </UserEditContainer>
 </template>
 
 <script>
 import { UserEditContainer } from "$modules/identification/components";
-import { InputEmail, InputPassword, Button } from "$shared/components";
+import { Input, InputPassword, InputEmail, Button } from "$shared/components";
+
+import { mapGetters } from "vuex";
 
 export default {
   name: "UserEdit",
   components: {
     UserEditContainer,
-    InputEmail,
+    Input,
     InputPassword,
-
+    InputEmail,
     Button,
   },
+  computed: {
+    ...mapGetters({
+      userData: "Identification/userData",
+    }),
+  },
+
   data: () => ({
     form: {
+      name: undefined,
       email: undefined,
       password: undefined,
+      passwordConfirmation: undefined,
     },
   }),
-  methods: {
-    goToRoute(pRouteName) {
-      if (pRouteName) {
-        this.$router.push(pRouteName).catch(() => {});
+
+  mounted() {
+    this.form.name = this.userData.name;
+    this.form.email = this.userData.email;
+  },
+
+  watch: {
+    "form.password"(pValue) {
+      if (!pValue && !this.form.passwordConfirmation) {
+        this.$refs.form.resetValidation();
       }
     },
+
+    "form.passwordConfirmation"(pValue) {
+      if (!pValue && !this.form.password) {
+        this.$refs.form.resetValidation();
+      }
+    },
+  },
+
+  methods: {
+    pswdConfirmationValidation(value) {
+      return (
+        (value && value === this.form.password) || "As senhas não coincidem."
+      );
+    },
+
+    nameValidation: (value) => {
+      const pattern = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
+
+      if (!pattern.test(value)) {
+        return "Informe um nome válido.";
+      }
+
+      if (value.length >= 60) {
+        return "O nome deve conter até 60 caractéres.";
+      }
+
+      return true;
+    },
+
     async edit() {
       try {
         const isValid = this.$refs.form.validate();
 
         if (isValid) {
-          const variables = {
-            email: this.form.email,
-            password: this.form.password,
-          };
+          const variables = {};
 
-          const { user, token } = await this.$store.dispatch(
-            "Identification/LOGIN_USER",
-            variables
-          );
-          console.log(user, token);
+          if (this.form.name) {
+            variables.name = this.form.name;
+          }
+
+          if (this.form.password && this.form.passwordConfirmation) {
+            variables.password = this.form.password;
+            variables.passwordConfirmation = this.form.passwordConfirmation;
+          }
+
+          await this.$store.dispatch("Identification/UPDATE_USER", variables);
+
           this.$notify({
             group: "app",
             type: "success",
-            title: "Dados atualizados!",
-            text: "Alteração realizada com sucesso.",
+            title: "Usuario atualizado!",
+            text: "Atualizamos seu usuário com sucesso",
           });
-
-          this.$router.push("/edit").catch(() => {});
         }
       } catch (err) {
         this.$notify({

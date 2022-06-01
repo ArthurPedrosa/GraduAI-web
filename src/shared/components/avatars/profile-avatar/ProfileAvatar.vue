@@ -31,6 +31,12 @@
 
               <v-divider class="my-3" />
 
+              <v-btn depressed rounded text @click="goToRoute('/agreement')">
+                Termo de Uso
+              </v-btn>
+
+              <v-divider class="my-3" />
+
               <v-btn depressed rounded text @click="logout"> Sair </v-btn>
             </div>
           </v-list-item-content>
@@ -87,8 +93,15 @@ export default {
         });
       }
     },
+
     edit() {
       this.$router.push("/user/edit").catch(() => {});
+    },
+
+    goToRoute(pRouteName) {
+      if (pRouteName) {
+        this.$router.push(pRouteName).catch(() => {});
+      }
     },
   },
 };

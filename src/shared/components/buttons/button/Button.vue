@@ -2,6 +2,7 @@
   <v-btn
     :id="id"
     :rounded="rounded"
+    :fab="fab"
     :outlined="outlined"
     :small="small"
     :color="color"
@@ -28,6 +29,10 @@ export default {
     rounded: {
       type: Boolean,
       default: true,
+    },
+    fab: {
+      type: Boolean,
+      default: false,
     },
     outlined: {
       type: Boolean,

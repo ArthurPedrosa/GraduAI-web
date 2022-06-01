@@ -12,6 +12,7 @@
             :prepend-inner-icon="icon"
             :append-icon="appendIcon"
             :readonly="readonly"
+            :disabled="disabled"
             outlined
             dense
             :autocomplete="autoComplete"
@@ -83,6 +84,10 @@ export default {
     },
     on: {
       default: undefined,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
 

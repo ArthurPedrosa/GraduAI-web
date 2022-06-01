@@ -39,11 +39,17 @@ export default {
       type: String,
       default: "Senha",
     },
+    removeDefaultValidate: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
     getRules() {
-      return [...this.rules, this.passwordRules];
+      return this.removeDefaultValidate
+        ? [...this.rules]
+        : [...this.rules, this.passwordRules];
     },
   },
   data() {

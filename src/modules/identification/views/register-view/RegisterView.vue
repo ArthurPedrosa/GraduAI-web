@@ -71,11 +71,13 @@
 
 <script>
 import { AuthenticateContainer } from "$modules/identification/components";
-import { Button } from "$shared/components";
-import { Input } from "$shared/components";
-import { InputEmail } from "$shared/components";
-import { InputPassword } from "$shared/components";
-import { Checkbox } from "$shared/components";
+import {
+  InputPassword,
+  InputEmail,
+  Input,
+  Button,
+  Checkbox,
+} from "$shared/components";
 
 export default {
   name: "Register",
@@ -111,10 +113,16 @@ export default {
 
     nameValidation: (value) => {
       const pattern = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
-      return (
-        pattern.test(value) || "Informe um nome válido.",
-        value.length <= 200 || "O nome deve conter até 60 caractéres."
-      );
+
+      if (!pattern.test(value)) {
+        return "Informe um nome válido.";
+      }
+
+      if (value.length >= 60) {
+        return "O nome deve conter até 60 caractéres.";
+      }
+
+      return true;
     },
 
     async register() {

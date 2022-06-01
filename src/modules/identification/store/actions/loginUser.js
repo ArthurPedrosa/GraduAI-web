@@ -1,4 +1,3 @@
-import axios from "axios";
 import api from "$shared/services/api";
 
 const loginUser = async (store, { email, password }) => {
@@ -7,8 +6,6 @@ const loginUser = async (store, { email, password }) => {
       email,
       password,
     });
-
-    axios.defaults.headers.Authorization = "Bearer " + data.token;
 
     return data;
   } catch (err) {
