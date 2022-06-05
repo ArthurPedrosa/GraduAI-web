@@ -1,4 +1,5 @@
-import AuthenticateContainer from "./authenticate-container/AuthenticateContainer.vue";
-import UserEditContainer from "./edit-container/UserEditContainer.vue";
+import AuthenticateContainer from "./authenticate-container/AuthenticateContainer";
+import UserEditContainer from "./edit-container/UserEditContainer";
+import AgreementUser from "./agreement-user/AgreementUser";
 
-export { AuthenticateContainer, UserEditContainer };
+export { AuthenticateContainer, UserEditContainer, AgreementUser };

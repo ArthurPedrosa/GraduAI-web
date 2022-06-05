@@ -2,7 +2,7 @@
 
 <template>
   <button :id="id" class="btn" @click="() => $emit('click')">
-    <TextDefault class="font-weight-bold">
+    <TextDefault>
       <slot />
     </TextDefault>
   </button>

@@ -9,7 +9,7 @@
       class="d-flex flex-column justify-center flex-grow-1"
     >
       <div
-        class="pa-10 d-flex flex-column align-start justify-center flex-grow-1"
+        class="pa-sm-10 d-flex flex-column align-start justify-center flex-grow-1"
       >
         <InputEmail
           v-model="form.email"

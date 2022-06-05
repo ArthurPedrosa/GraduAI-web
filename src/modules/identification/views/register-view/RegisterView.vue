@@ -1,29 +1,31 @@
+<style lang="scss" src="./RegisterView.scss" scoped></style>
+
 <template>
   <AuthenticateContainer
     title-card="Cadastrar um Usuário"
     subtitle="Informe os campos para cadastrar um usuário."
   >
-    <v-form ref="form" class="d-flex flex-column justify-center flex-grow-1">
+    <v-form
+      ref="form"
+      class="register-view d-flex flex-column justify-center flex-grow-1"
+    >
       <div
-        class="pa-10 d-flex flex-column align-start justify-center flex-grow-1"
+        class="px-sm-10 pt-5 d-flex flex-column align-start justify-center flex-grow-1 form"
       >
         <Input
           v-model="form.name"
           label="Nome"
-          class="mb-2"
           :rules="[nameValidation, $rulesValidations.required]"
         />
 
         <InputEmail
           v-model="form.email"
-          class="mb-2"
           label="Email"
           :rules="[$rulesValidations.required]"
         />
 
         <InputPassword
           v-model="form.password"
-          class="mb-2"
           :rules="[$rulesValidations.required]"
         />
 
@@ -36,13 +38,22 @@
         <Checkbox
           v-model="form.agreement"
           label="Concordo com os termos"
-          class="align-self-center"
+          class="align-self-center checkbox"
           required
           :rules="[checkboxValidation]"
         />
       </div>
 
-      <div class="d-flex flex-column align-center">
+      <div class="d-flex flex-column align-center pb-5">
+        <Button
+          class="align-self-center"
+          small
+          plain
+          @click="showModal = true"
+          color="primary"
+        >
+          Termo de Uso
+        </Button>
         <Button
           small
           outlined
@@ -65,18 +76,30 @@
           Voltar
         </Button>
       </div>
+
+      <Modal
+        class="align-self-center"
+        :show="showModal"
+        @close="() => (showModal = false)"
+      >
+        <AgreementUser />
+      </Modal>
     </v-form>
   </AuthenticateContainer>
 </template>
 
 <script>
-import { AuthenticateContainer } from "$modules/identification/components";
+import {
+  AuthenticateContainer,
+  AgreementUser,
+} from "$modules/identification/components";
 import {
   InputPassword,
   InputEmail,
   Input,
   Button,
   Checkbox,
+  Modal,
 } from "$shared/components";
 
 export default {
@@ -88,6 +111,8 @@ export default {
     Input,
     InputEmail,
     InputPassword,
+    Modal,
+    AgreementUser,
   },
 
   data: () => ({
@@ -98,6 +123,7 @@ export default {
       passwordConfirmation: undefined,
       agreement: false,
     },
+    showModal: false,
   }),
 
   methods: {

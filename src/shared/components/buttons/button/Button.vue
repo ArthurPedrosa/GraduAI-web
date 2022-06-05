@@ -5,6 +5,8 @@
     :fab="fab"
     :outlined="outlined"
     :small="small"
+    :text="text"
+    :plain="plain"
     :color="color"
     class="px-6"
     :style="{ width, minWidth }"
@@ -39,6 +41,14 @@ export default {
       default: false,
     },
     small: {
+      type: Boolean,
+      default: false,
+    },
+    text: {
+      type: Boolean,
+      default: false,
+    },
+    plain: {
       type: Boolean,
       default: false,
     },
