@@ -13,6 +13,7 @@
         class="px-sm-10 pt-5 d-flex flex-column align-start justify-center flex-grow-1 form"
       >
         <Input
+          id="name"
           v-model="form.name"
           label="Nome"
           :rules="[nameValidation, $rulesValidations.required]"
@@ -25,17 +26,20 @@
         />
 
         <InputPassword
+          id="password"
           v-model="form.password"
           :rules="[$rulesValidations.required]"
         />
 
         <InputPassword
+          id="password-confirmation"
           v-model="form.passwordConfirmation"
           label="Confirme sua senha"
           :rules="[pswdConfirmationValidation]"
         />
 
         <Checkbox
+          id="term"
           v-model="form.agreement"
           label="Concordo com os termos"
           class="align-self-center checkbox"
@@ -46,6 +50,7 @@
 
       <div class="d-flex flex-column align-center pb-5">
         <Button
+          id="term"
           class="align-self-center"
           small
           plain
@@ -54,7 +59,9 @@
         >
           Termo de Uso
         </Button>
+
         <Button
+          id="register"
           small
           outlined
           class="mb-2 mt-2"
@@ -66,6 +73,7 @@
         </Button>
 
         <Button
+          id="back"
           small
           outlined
           class="mt-2"

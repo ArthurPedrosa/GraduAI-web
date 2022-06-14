@@ -1,6 +1,10 @@
 describe("Verify home page load", () => {
-  it("successfully loads Home Page", () => {
+  function testPage() {
     cy.visit("/");
+  }
+
+  it("Successfully loads Home Page elements", () => {
+    testPage();
 
     cy.contains("h3", "Descubra sua chance de aprovação!");
     cy.contains("h4", "As Universidades com Menores Taxas de Evasão");
@@ -13,7 +17,7 @@ describe("Verify home page load", () => {
   });
 
   it("successfully change routes", () => {
-    cy.visit("/");
+    testPage();
     cy.get("#start").click();
     cy.get("#home").click();
     cy.get("#login").click();

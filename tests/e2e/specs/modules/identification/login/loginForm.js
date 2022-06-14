@@ -1,7 +1,10 @@
 describe("Verify login form", () => {
-  it("unsuccessfully login without inform fields", () => {
+  function testPage() {
     cy.visit("/login");
+  }
 
+  it("unsuccessfully login without inform fields", () => {
+    testPage();
     cy.get("#login").click();
     cy.contains("div", "Campo Obrigatório.");
 

@@ -3,10 +3,6 @@ describe("Verify login page load", () => {
     cy.visit("/login");
 
     cy.contains("div", "Iniciar Sessão");
-    cy.contains(
-      "div",
-      "Digite o email e a senha de um usuário ja cadastrado para iniciar a sessão."
-    );
     cy.contains("#login", "Entrar");
     cy.contains("#register", "Registrar-se");
     cy.contains("#recover-password", "Esqueci minha senha");

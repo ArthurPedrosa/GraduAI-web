@@ -1,5 +1,6 @@
 <template>
   <v-checkbox
+    :id="`checkbox-${id}`"
     v-model="checkboxValue"
     :label="label"
     :rules="getRules"
@@ -12,6 +13,10 @@ export default {
   name: "Checkbox",
 
   props: {
+    id: {
+      type: String,
+      default: "",
+    },
     label: {
       type: String,
       default: "",

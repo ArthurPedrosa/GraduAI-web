@@ -7,7 +7,9 @@
         </div>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="danger" text @click="$emit('close')"> Fechar </v-btn>
+          <Button id="close-modal" color="danger" text @click="$emit('close')">
+            Fechar
+          </Button>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -15,8 +17,12 @@
 </template>
 
 <script>
+import { Button } from "$shared/components";
 export default {
   name: "Modal",
+  components: {
+    Button,
+  },
 
   props: {
     show: {

@@ -1,6 +1,7 @@
 <template>
   <v-btn
     :id="id"
+    :type="type"
     :rounded="rounded"
     :fab="fab"
     :outlined="outlined"
@@ -23,6 +24,10 @@ export default {
     id: {
       type: String,
       default: "",
+    },
+    type: {
+      type: String,
+      default: "button",
     },
     color: {
       type: String,
