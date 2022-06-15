@@ -4,7 +4,7 @@
       <v-col class="py-0" align="start">
         <v-input>
           <v-text-field
-            v-model="inputValue"
+            v-model.trim="inputValue"
             :id="`input-${id}`"
             :label="label"
             :rules="getRules"

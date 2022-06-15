@@ -75,6 +75,10 @@ export default {
   },
   methods: {
     passwordRules: (pValue) => {
+      if (pValue.includes(" ")) {
+        return "Campo não pode conter espaços.";
+      }
+
       return pValue.length >= 8 || "A senha deve conter 8 ou mais caracteres.";
     },
 
