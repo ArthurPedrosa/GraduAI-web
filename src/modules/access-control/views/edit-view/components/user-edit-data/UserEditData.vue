@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { Input, InputEmail, Button } from "$shared/components";
+import { Input, InputEmail, Button, TextDefault } from "$shared/components";
 import { mapGetters } from "vuex";
 
 export default {
@@ -39,11 +39,12 @@ export default {
     Input,
     InputEmail,
     Button,
+    TextDefault,
   },
 
   computed: {
     ...mapGetters({
-      userData: "Identification/userData",
+      userData: "AccessControl/userData",
     }),
   },
 
@@ -81,7 +82,7 @@ export default {
           if (this.form.name) {
             const variables = { name: this.form.name };
 
-            await this.$store.dispatch("Identification/UPDATE_USER", variables);
+            await this.$store.dispatch("AccessControl/UPDATE_USER", variables);
 
             this.$notify({
               group: "app",

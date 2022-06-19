@@ -34,7 +34,7 @@
         <slot />
       </div>
 
-      <div class="stepper-content-footer mx-5">
+      <div v-if="!lastLevel" class="stepper-content-footer mx-5">
         <Button
           small
           outlined
@@ -64,6 +64,14 @@ export default {
     actualLevel: {
       type: Number,
       default: 1,
+    },
+  },
+
+  computed: {
+    lastLevel() {
+      return (
+        this.actualLevel === this.stepperData[this.stepperData.length - 1].id
+      );
     },
   },
 

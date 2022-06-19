@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { InputPassword, Button } from "$shared/components";
+import { InputPassword, Button, TextDefault } from "$shared/components";
 
 export default {
   name: "UserEditPassword",
@@ -45,6 +45,7 @@ export default {
   components: {
     InputPassword,
     Button,
+    TextDefault,
   },
 
   data: () => ({
@@ -73,8 +74,13 @@ export default {
             this.form.newPasswordConfirmation;
 
           if (existAllFields) {
-            await this.$store.dispatch("Identification/UPDATE_USER", this.form);
+            await this.$store.dispatch("AccessControl/UPDATE_USER", this.form);
 
+            this.form = {
+              oldPassword: undefined,
+              newPassword: undefined,
+              newPasswordConfirmation: undefined,
+            };
             this.$notify({
               group: "app",
               type: "success",

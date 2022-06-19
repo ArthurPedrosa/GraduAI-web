@@ -100,7 +100,7 @@
 import {
   AuthenticateContainer,
   AgreementUser,
-} from "$modules/identification/components";
+} from "$modules/access-control/components";
 import {
   InputPassword,
   InputEmail,
@@ -171,7 +171,7 @@ export default {
             passwordConfirmation: this.form.passwordConfirmation,
           };
 
-          await this.$store.dispatch("Identification/CREATE_USER", variables);
+          await this.$store.dispatch("AccessControl/CREATE_USER", variables);
 
           this.$notify({
             group: "app",

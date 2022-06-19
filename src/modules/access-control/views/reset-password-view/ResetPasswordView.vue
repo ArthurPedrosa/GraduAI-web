@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { AuthenticateContainer } from "$modules/identification/components";
+import { AuthenticateContainer } from "$modules/access-control/components";
 import { Button, InputPassword } from "$shared/components";
 
 export default {
@@ -88,7 +88,7 @@ export default {
         if (isValid) {
           const { token } = this.$route.params;
 
-          await this.$store.dispatch("Identification/RESET_PASSWORD", {
+          await this.$store.dispatch("AccessControl/RESET_PASSWORD", {
             token,
             password: this.form.password,
             passwordConfirmation: this.form.passwordConfirmation,

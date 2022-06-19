@@ -12,7 +12,7 @@
 import {
   UserEditContainer,
   AgreementUser,
-} from "$modules/identification/components";
+} from "$modules/access-control/components";
 
 export default {
   name: "UserEdit",

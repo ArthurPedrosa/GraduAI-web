@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { AuthenticateContainer } from "$modules/identification/components";
+import { AuthenticateContainer } from "$modules/access-control/components";
 import { Button, InputEmail, TextDefault } from "$shared/components";
 
 export default {
@@ -87,7 +87,7 @@ export default {
         const isValid = this.$refs.form.validate();
 
         if (isValid) {
-          await this.$store.dispatch("Identification/RECOVER_PASSWORD", {
+          await this.$store.dispatch("AccessControl/RECOVER_PASSWORD", {
             email: this.form.email,
           });
           this.sended = true;

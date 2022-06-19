@@ -54,7 +54,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      userData: "Identification/userData",
+      userData: "AccessControl/userData",
     }),
 
     initialsName() {
@@ -74,7 +74,7 @@ export default {
   methods: {
     logout() {
       try {
-        this.$store.commit("Identification/logout");
+        this.$store.commit("AccessControl/logout");
 
         this.$notify({
           group: "app",

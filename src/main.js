@@ -12,14 +12,14 @@ Vue.prototype.$rulesValidations = rulesValidations;
 Vue.use(Notifications);
 
 router.beforeEach((to, from, next) => {
-  const IdentificationRoutes = [
+  const AccessControlRoutes = [
     "/login",
     "/login/register",
     "/login/recover-password",
   ];
-  const authRequired = !IdentificationRoutes.includes(to.path);
+  const authRequired = !AccessControlRoutes.includes(to.path);
   const loggedIn =
-    localStorage.vuex && !!JSON.parse(localStorage.vuex).Identification.token;
+    localStorage.vuex && !!JSON.parse(localStorage.vuex).AccessControl.token;
 
   if (loggedIn && !authRequired) {
     next("/");

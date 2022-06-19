@@ -1,13 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import * as IdentificationRoutes from "$modules/identification/routes";
+import * as AccessControlRoutes from "$modules/access-control/routes";
 import * as AnalysisRoutes from "$modules/analysis/routes";
 
 Vue.use(VueRouter);
 
 const routes = [
-  ...Object.values(IdentificationRoutes),
+  ...Object.values(AccessControlRoutes),
   ...Object.values(AnalysisRoutes),
 ];
 

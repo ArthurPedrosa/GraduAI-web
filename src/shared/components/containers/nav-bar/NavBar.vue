@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isLoggedIn: "Identification/isLoggedIn",
+      isLoggedIn: "AccessControl/isLoggedIn",
     }),
   },
 };

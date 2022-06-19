@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { AuthenticateContainer } from "$modules/identification/components";
+import { AuthenticateContainer } from "$modules/access-control/components";
 import {
   Button,
   ButtonText,
@@ -108,12 +108,12 @@ export default {
           };
 
           const { user, token } = await this.$store.dispatch(
-            "Identification/LOGIN_USER",
+            "AccessControl/LOGIN_USER",
             variables
           );
 
-          this.$store.commit("Identification/setToken", token);
-          this.$store.commit("Identification/setUser", user);
+          this.$store.commit("AccessControl/setToken", token);
+          this.$store.commit("AccessControl/setUser", user);
 
           this.$notify({
             group: "app",

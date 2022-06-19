@@ -8,6 +8,7 @@
       </SubTitle>
 
       <div class="container">
+        <BarChart />
         <v-row
           v-for="(item, index) in 10"
           :key="index"
@@ -25,13 +26,14 @@
 </template>
 
 <script>
-import { SubTitle, CardText } from "$shared/components";
+import { SubTitle, CardText, BarChart } from "$shared/components";
 
 export default {
   name: "AttributesArea",
   components: {
     SubTitle,
     CardText,
+    BarChart,
   },
 
   methods: {

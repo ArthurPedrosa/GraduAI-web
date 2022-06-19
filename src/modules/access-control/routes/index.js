@@ -1,10 +1,10 @@
-import HomeView from "$modules/identification/views/home-view/HomeView.vue";
-import LoginView from "$modules/identification/views/login-view/LoginView.vue";
-import RegisterView from "$modules/identification/views/register-view/RegisterView.vue";
-import RecoverPasswordView from "$modules/identification/views/recover-password-view/RecoverPasswordView.vue";
-import UserEditView from "$modules/identification/views/edit-view/UserEditView.vue";
-import AgreementView from "$modules/identification/views/agreement-view/AgreementView.vue";
-import ResetPasswordView from "$modules/identification/views/reset-password-view/ResetPasswordView.vue";
+import HomeView from "$modules/access-control/views/home-view/HomeView.vue";
+import LoginView from "$modules/access-control/views/login-view/LoginView.vue";
+import RegisterView from "$modules/access-control/views/register-view/RegisterView.vue";
+import RecoverPasswordView from "$modules/access-control/views/recover-password-view/RecoverPasswordView.vue";
+import UserEditView from "$modules/access-control/views/edit-view/UserEditView.vue";
+import AgreementView from "$modules/access-control/views/agreement-view/AgreementView.vue";
+import ResetPasswordView from "$modules/access-control/views/reset-password-view/ResetPasswordView.vue";
 import { NavBar, Footer } from "$shared/components";
 
 export const HomeRoute = {

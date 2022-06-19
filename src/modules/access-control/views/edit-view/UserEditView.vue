@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { UserEditContainer } from "$modules/identification/components";
+import { UserEditContainer } from "$modules/access-control/components";
 import {
   UserEditPassword,
   UserEditData,
-} from "$modules/identification/views/edit-view/components";
+} from "$modules/access-control/views/edit-view/components";
 
 export default {
   name: "UserEdit",
