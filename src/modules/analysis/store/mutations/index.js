@@ -1,5 +1,18 @@
 export default {
-  setPersonalData(state, { name, sex, race, birthDate, uf, city, naturality }) {
+  setPersonalData(
+    state,
+    {
+      name,
+      sex,
+      race,
+      birthDate,
+      uf,
+      city,
+      naturality,
+      extraCurricular,
+      socialSupport,
+    }
+  ) {
     state.analisys.personalData = {
       name,
       sex,
@@ -8,6 +21,8 @@ export default {
       uf,
       city,
       naturality,
+      extraCurricular,
+      socialSupport,
     };
   },
 

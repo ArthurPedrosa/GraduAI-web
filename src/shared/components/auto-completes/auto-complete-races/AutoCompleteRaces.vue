@@ -16,10 +16,10 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_UFS from "./actions/getUfs";
+import GET_RACES from "./actions/getRaces";
 
 export default {
-  name: "AutoCompleteUfs",
+  name: "AutoCompleteRaces",
 
   components: {
     AutoComplete,
@@ -30,11 +30,11 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "ufs_id",
+      default: "rac_id",
     },
     itemText: {
       type: String,
-      default: "ufs_name",
+      default: "rac_name",
     },
   },
 
@@ -51,9 +51,9 @@ export default {
   },
 
   async mounted() {
-    const [ufs] = await GET_UFS();
+    const [races] = await GET_RACES();
 
-    this.dataList = ufs;
+    this.dataList = races;
   },
 };
 </script>

@@ -11,6 +11,7 @@
           <v-autocomplete
             v-model="inputValue"
             :label="label"
+            :hint="hint"
             :items="items"
             :rules="getRules"
             :multiple="multiple"
@@ -44,6 +45,11 @@ export default {
     },
 
     icon: {
+      type: String,
+      default: "",
+    },
+
+    hint: {
       type: String,
       default: "",
     },

@@ -11,10 +11,18 @@
           <Input v-model="form.name" label="Nome" @blur="setStore" />
         </v-col>
         <v-col cols="12" md="3">
-          <AutoComplete v-model="form.sex" label="Sexo" @blur="setStore" />
+          <AutoCompleteGenders
+            v-model="form.sex"
+            label="Sexo"
+            @blur="setStore"
+          />
         </v-col>
         <v-col cols="12" md="3">
-          <AutoComplete v-model="form.race" label="Raça" @blur="setStore" />
+          <AutoCompleteRaces
+            v-model="form.race"
+            label="Raça"
+            @blur="setStore"
+          />
         </v-col>
       </v-row>
 
@@ -28,17 +36,21 @@
         </v-col>
 
         <v-col cols="12" md="4">
-          <AutoComplete
+          <AutoCompleteYesOrNo
             v-model="form.socialSupport"
             label="Apoio Social"
+            hint="Informa se o aluno recebe algum tipo de apoio social na forma de
+          moradia, transporte, alimentação, material didático e bolsas
+          (trabalho/permanência)"
             @blur="setStore"
           />
         </v-col>
 
         <v-col cols="12" md="4">
-          <AutoComplete
+          <AutoCompleteYesOrNo
             v-model="form.extraCurricular"
             label="Atividades Extras Curriculares"
+            hint="Informa se o aluno participa de algum tipo de atividade extracurricular (estágio não obrigatório, extensão, monitoria e pesquisa)"
             @blur="setStore"
           />
         </v-col>
@@ -72,7 +84,10 @@
 <script>
 import {
   AutoComplete,
+  AutoCompleteGenders,
   AutoCompleteUfs,
+  AutoCompleteRaces,
+  AutoCompleteYesOrNo,
   Input,
   InputDate,
 } from "$shared/components";
@@ -81,7 +96,15 @@ import { mapGetters } from "vuex";
 export default {
   name: "PersonalDataForm",
 
-  components: { Input, AutoComplete, AutoCompleteUfs, InputDate },
+  components: {
+    Input,
+    AutoComplete,
+    AutoCompleteGenders,
+    AutoCompleteUfs,
+    AutoCompleteRaces,
+    AutoCompleteYesOrNo,
+    InputDate,
+  },
 
   data() {
     return {

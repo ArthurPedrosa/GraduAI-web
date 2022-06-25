@@ -16,10 +16,10 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_UFS from "./actions/getUfs";
+import GET_GENDERS from "./actions/getGenders";
 
 export default {
-  name: "AutoCompleteUfs",
+  name: "AutoCompleteGenders",
 
   components: {
     AutoComplete,
@@ -30,11 +30,11 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "ufs_id",
+      default: "gen_id",
     },
     itemText: {
       type: String,
-      default: "ufs_name",
+      default: "gen_name",
     },
   },
 
@@ -51,9 +51,9 @@ export default {
   },
 
   async mounted() {
-    const [ufs] = await GET_UFS();
+    const [genders] = await GET_GENDERS();
 
-    this.dataList = ufs;
+    this.dataList = genders;
   },
 };
 </script>

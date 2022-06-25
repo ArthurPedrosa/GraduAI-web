@@ -4,6 +4,7 @@
     :label="label"
     :items="getItems"
     :rules="getRules"
+    :hint="hint"
     :multiple="multiple"
     :width="width"
     :minWidth="minWidth"
@@ -16,10 +17,9 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_UFS from "./actions/getUfs";
 
 export default {
-  name: "AutoCompleteUfs",
+  name: "AutoCompleteYesOrNo",
 
   components: {
     AutoComplete,
@@ -30,11 +30,11 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "ufs_id",
+      default: "value",
     },
     itemText: {
       type: String,
-      default: "ufs_name",
+      default: "name",
     },
   },
 
@@ -50,10 +50,20 @@ export default {
     },
   },
 
-  async mounted() {
-    const [ufs] = await GET_UFS();
+  created() {
+    this.DATA = [
+      [
+        { name: "Sim", value: 1 },
+        { name: "Não", value: 0 },
+      ],
+      2,
+    ];
+  },
 
-    this.dataList = ufs;
+  async mounted() {
+    const [data] = this.DATA;
+
+    this.dataList = data;
   },
 };
 </script>
