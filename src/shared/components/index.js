@@ -6,6 +6,7 @@ export * from "./charts";
 export * from "./buttons";
 export * from "./containers";
 export * from "./icons";
+export * from "./loaders";
 export * from "./texts";
 export * from "./dividers";
 export * from "./modals";

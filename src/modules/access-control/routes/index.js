@@ -1,4 +1,3 @@
-import HomeView from "$modules/access-control/views/home-view/HomeView.vue";
 import LoginView from "$modules/access-control/views/login-view/LoginView.vue";
 import RegisterView from "$modules/access-control/views/register-view/RegisterView.vue";
 import RecoverPasswordView from "$modules/access-control/views/recover-password-view/RecoverPasswordView.vue";
@@ -6,16 +5,6 @@ import UserEditView from "$modules/access-control/views/edit-view/UserEditView.v
 import AgreementView from "$modules/access-control/views/agreement-view/AgreementView.vue";
 import ResetPasswordView from "$modules/access-control/views/reset-password-view/ResetPasswordView.vue";
 import { NavBar, Footer } from "$shared/components";
-
-export const HomeRoute = {
-  path: "/",
-  name: "Home",
-  components: {
-    default: HomeView,
-    NavBar,
-    Footer,
-  },
-};
 
 export const LoginRoute = {
   path: "/login",

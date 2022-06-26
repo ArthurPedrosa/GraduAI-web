@@ -5,34 +5,48 @@ export default {
   name: "BarChart",
 
   extends: Bar,
+
+  props: {
+    chartData: {
+      required: true,
+      type: Array,
+      default: () => [],
+    },
+    labelChart: {
+      type: String,
+      default: "Label",
+    },
+    variableLabelName: {
+      required: true,
+      type: String,
+      default: "",
+    },
+    variableValueName: {
+      required: true,
+      type: String,
+      default: "",
+    },
+  },
+
   mounted() {
+    const labels = this.chartData.map((item) => item[this.variableLabelName]);
+    const data = this.chartData.map((item) => item[this.variableValueName]);
+
     this.renderChart(
       {
-        labels: [
-          "February",
-          "January",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "July",
-          "July",
-          "July",
-          "July",
-          "July",
-          "July",
-          "July",
-        ],
+        labels,
         datasets: [
           {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [40, 39, 32, 40, 39, 44, 40, 40, 40, 40, 40, 40, 40, 40],
+            label: this.labelChart,
+            backgroundColor: "#fcab10",
+            data,
           },
         ],
       },
-      { responsive: true, maintainAspectRatio: false }
+      {
+        responsive: true,
+        maintainAspectRatio: false,
+      }
     );
   },
 };
