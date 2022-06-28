@@ -4,33 +4,33 @@
   <v-container>
     <v-col align="center">
       <SubTitle class="text-center primary--text">
-        Os {{ attributtes.length || "" }} Atributos Mais Influentes
+        Os {{ attributtes[1] || "" }} Atributos Mais Influentes
       </SubTitle>
 
       <div class="container">
         <LoaderDefault v-if="loader" />
 
-        <div v-else-if="attributtes.length > 0">
+        <div v-else-if="attributtes[1] > 0">
           <BarChart
-            :chart-data="attributtes"
+            :chart-data="attributtes[0]"
             labelChart="Porcentagem(%) influência atributos."
-            variable-label-name="feature"
-            variable-value-name="importance"
+            variable-label-name="iat_name"
+            variable-value-name="iat_importance"
           />
 
           <v-row
-            v-for="(item, index) in attributtes"
+            v-for="(item, index) in attributtes[0]"
             :key="index"
             :justify="isOdd(index) ? 'start' : 'end'"
             class="my-7"
             align="center"
           >
             <CardText
-              :title-card="item.feature"
-              :subtitle-card="`${item.importance} %`"
+              :title-card="item.iat_name"
+              :subtitle-card="`${item.iat_importance} %`"
               class="card"
             >
-              {{ item.description }}
+              {{ item.iat_description }}
             </CardText>
           </v-row>
         </div>
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       loader: false,
-      attributtes: [],
+      attributtes: [[], 0],
     };
   },
 
