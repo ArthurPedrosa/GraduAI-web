@@ -17,6 +17,7 @@
             :multiple="multiple"
             :item-text="itemText"
             :item-value="itemValue"
+            :persistent-hint="persistentHint"
             no-data-text="Não há resultados disponíveis"
             outlined
             dense
@@ -64,6 +65,11 @@ export default {
     },
 
     multiple: {
+      type: Boolean,
+      default: false,
+    },
+
+    persistentHint: {
       type: Boolean,
       default: false,
     },

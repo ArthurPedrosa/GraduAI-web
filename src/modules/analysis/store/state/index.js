@@ -10,6 +10,10 @@ export default {
       city: undefined,
       naturality: undefined,
     },
-    university: {},
+  },
+  studentData: {
+    university: undefined,
+    extraCurricular: undefined,
+    socialSupport: undefined,
   },
 };

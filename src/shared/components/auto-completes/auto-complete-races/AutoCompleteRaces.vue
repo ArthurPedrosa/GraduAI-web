@@ -10,6 +10,7 @@
     :maxWidth="maxWidth"
     :item-text="itemText"
     :item-value="itemValue"
+    :persistent-hint="persistentHint"
     @blur="$emit('blur')"
   />
 </template>

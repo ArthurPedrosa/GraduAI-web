@@ -4,7 +4,6 @@
     :label="label"
     :items="getItems"
     :rules="getRules"
-    :hint="hint"
     :multiple="multiple"
     :width="width"
     :minWidth="minWidth"
@@ -18,9 +17,10 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
+import GET_UNIVERSITIES from "./actions/getUniversities";
 
 export default {
-  name: "AutoCompleteYesOrNo",
+  name: "AutoCompleteUniversities",
 
   components: {
     AutoComplete,
@@ -31,7 +31,7 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "value",
+      default: "id",
     },
     itemText: {
       type: String,
@@ -51,20 +51,10 @@ export default {
     },
   },
 
-  created() {
-    this.DATA = [
-      [
-        { name: "Sim", value: 1 },
-        { name: "Não", value: 0 },
-      ],
-      2,
-    ];
-  },
-
   async mounted() {
-    const [data] = this.DATA;
+    const [universities] = await GET_UNIVERSITIES();
 
-    this.dataList = data;
+    this.dataList = universities;
   },
 };
 </script>

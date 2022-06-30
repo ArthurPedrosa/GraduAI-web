@@ -30,7 +30,7 @@
       >
         <ProfileForm v-if="isPerfil" />
         <PersonalDataForm ref="personal-data" v-else-if="isPersonalData" />
-        <CollegeForm v-else-if="isCollege" />
+        <StudentDataForm v-else-if="isCollege" />
         <RevisionForm v-else-if="isRevision" />
         <ResultForm v-else-if="isResult" />
       </StepperForm>
@@ -44,7 +44,7 @@ import { InfoIcon, TextDefault } from "$shared/components";
 import {
   ProfileForm,
   PersonalDataForm,
-  CollegeForm,
+  StudentDataForm,
   RevisionForm,
   ResultForm,
 } from "./components";
@@ -59,7 +59,7 @@ export default {
     StepperForm,
     ProfileForm,
     PersonalDataForm,
-    CollegeForm,
+    StudentDataForm,
     RevisionForm,
     ResultForm,
   },
@@ -69,13 +69,14 @@ export default {
       {
         id: 2,
         label: "Dados Pessoais",
-        subtitle: "Informe os dados pessoais.",
+        subtitle: "Informe os seus dados pessoais.",
         disabled: false,
       },
       {
         id: 3,
-        label: "Universidades",
-        subtitle: "Informe dados da universidade.",
+        label: "Dados Estudantis",
+        subtitle:
+          "Informe os dados estudantis da universidade, do curso e de outras informações na qual você deseja se incluir a sua graduação.",
         disabled: false,
       },
       {
@@ -87,7 +88,8 @@ export default {
       {
         id: 5,
         label: "Resultados",
-        subtitle: "Aqui estão os resultados obtidos.",
+        subtitle:
+          "Obrigado por utilizar o GraduAI ! Aqui estão os resultados da análise, obtidos de acordo com os atributos informados.",
         disabled: false,
       },
     ];
@@ -117,7 +119,7 @@ export default {
     },
 
     isCollege() {
-      return this.actualLevel.label === "Universidades";
+      return this.actualLevel.label === "Dados Estudantis";
     },
 
     isRevision() {

@@ -10,6 +10,7 @@
         <v-col cols="12" md="6">
           <Input v-model="form.name" label="Nome" @blur="setStore" />
         </v-col>
+
         <v-col cols="12" md="3">
           <AutoCompleteGenders
             v-model="form.sex"
@@ -17,6 +18,7 @@
             @blur="setStore"
           />
         </v-col>
+
         <v-col cols="12" md="3">
           <AutoCompleteRaces
             v-model="form.race"
@@ -27,7 +29,7 @@
       </v-row>
 
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <InputDate
             v-model="form.birthDate"
             label="Data de Nascimento"
@@ -35,33 +37,11 @@
           />
         </v-col>
 
-        <v-col cols="12" md="4">
-          <AutoCompleteYesOrNo
-            v-model="form.socialSupport"
-            label="Apoio Social"
-            hint="Informa se o aluno recebe algum tipo de apoio social na forma de
-          moradia, transporte, alimentação, material didático e bolsas
-          (trabalho/permanência)"
-            @blur="setStore"
-          />
-        </v-col>
-
-        <v-col cols="12" md="4">
-          <AutoCompleteYesOrNo
-            v-model="form.extraCurricular"
-            label="Atividades Extras Curriculares"
-            hint="Informa se o aluno participa de algum tipo de atividade extracurricular (estágio não obrigatório, extensão, monitoria e pesquisa)"
-            @blur="setStore"
-          />
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <AutoCompleteUfs v-model="form.uf" label="Estado" @blur="setStore" />
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <AutoComplete
             v-model="form.city"
             label="Municipio"
@@ -69,7 +49,7 @@
           />
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <AutoComplete
             v-model="form.naturality"
             label="Naturalidade"
@@ -87,7 +67,6 @@ import {
   AutoCompleteGenders,
   AutoCompleteUfs,
   AutoCompleteRaces,
-  AutoCompleteYesOrNo,
   Input,
   InputDate,
 } from "$shared/components";
@@ -102,18 +81,14 @@ export default {
     AutoCompleteGenders,
     AutoCompleteUfs,
     AutoCompleteRaces,
-    AutoCompleteYesOrNo,
     InputDate,
   },
 
   data() {
     return {
-      debounce: null,
       form: {
         name: undefined,
         sex: undefined,
-        socialSupport: undefined,
-        extraCurricular: undefined,
         race: undefined,
         birthDate: undefined,
         uf: undefined,
