@@ -45,7 +45,6 @@ import {
   ProfileForm,
   PersonalDataForm,
   StudentDataForm,
-  RevisionForm,
   ResultForm,
 } from "./components";
 import { StepperForm } from "$modules/analysis/components";
@@ -60,7 +59,6 @@ export default {
     ProfileForm,
     PersonalDataForm,
     StudentDataForm,
-    RevisionForm,
     ResultForm,
   },
 
@@ -81,12 +79,6 @@ export default {
       },
       {
         id: 4,
-        label: "Revisão",
-        subtitle: "Revise os dados informados.",
-        disabled: false,
-      },
-      {
-        id: 5,
         label: "Resultados",
         subtitle:
           "Obrigado por utilizar o GraduAI ! Aqui estão os resultados da análise, obtidos de acordo com os atributos informados.",

@@ -42,20 +42,15 @@
         </v-col>
 
         <v-col cols="12" md="3">
-          <AutoComplete
+          <AutoCompleteCounties
             v-model="form.city"
+            :uf-id="form.uf"
             label="Municipio"
             @blur="setStore"
           />
         </v-col>
 
-        <v-col cols="12" md="3">
-          <AutoComplete
-            v-model="form.naturality"
-            label="Naturalidade"
-            @blur="setStore"
-          />
-        </v-col>
+        <v-col cols="12" md="3"> </v-col>
       </v-row>
     </div>
   </v-form>
@@ -63,10 +58,10 @@
 
 <script>
 import {
-  AutoComplete,
   AutoCompleteGenders,
   AutoCompleteUfs,
   AutoCompleteRaces,
+  AutoCompleteCounties,
   Input,
   InputDate,
 } from "$shared/components";
@@ -77,10 +72,10 @@ export default {
 
   components: {
     Input,
-    AutoComplete,
     AutoCompleteGenders,
     AutoCompleteUfs,
     AutoCompleteRaces,
+    AutoCompleteCounties,
     InputDate,
   },
 

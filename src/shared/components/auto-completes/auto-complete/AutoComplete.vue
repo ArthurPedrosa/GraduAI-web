@@ -18,6 +18,7 @@
             :item-text="itemText"
             :item-value="itemValue"
             :persistent-hint="persistentHint"
+            :disabled="disabled"
             no-data-text="Não há resultados disponíveis"
             outlined
             dense
@@ -62,6 +63,11 @@ export default {
     items: {
       type: Array,
       default: () => [],
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false,
     },
 
     multiple: {

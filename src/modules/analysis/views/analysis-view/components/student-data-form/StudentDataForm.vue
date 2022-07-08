@@ -12,6 +12,27 @@
           />
         </v-col>
 
+        <v-col cols="12" md="6">
+          <AutoCompleteLocations
+            v-model="form.location"
+            :university-id="form.university"
+            label="Campus"
+            @blur="setStore"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" md="6">
+          <AutoCompleteCourses
+            v-model="form.course"
+            :location-id="form.location"
+            :university-id="form.university"
+            label="Cursos"
+            @blur="setStore"
+          />
+        </v-col>
+
         <v-col cols="12" md="3">
           <AutoCompleteYesOrNo
             v-model="form.socialSupport"
@@ -41,7 +62,9 @@
 <script>
 import {
   AutoCompleteUniversities,
+  AutoCompleteLocations,
   AutoCompleteYesOrNo,
+  AutoCompleteCourses,
 } from "$shared/components";
 import { mapGetters } from "vuex";
 
@@ -50,13 +73,17 @@ export default {
 
   components: {
     AutoCompleteUniversities,
+    AutoCompleteLocations,
     AutoCompleteYesOrNo,
+    AutoCompleteCourses,
   },
 
   data() {
     return {
       form: {
         university: undefined,
+        location: undefined,
+        course: undefined,
         socialSupport: undefined,
         extraCurricular: undefined,
       },

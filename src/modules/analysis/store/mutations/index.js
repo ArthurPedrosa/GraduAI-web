@@ -11,9 +11,14 @@ export default {
     };
   },
 
-  setStudentData(state, { university, extraCurricular, socialSupport }) {
+  setStudentData(
+    state,
+    { university, location, course, extraCurricular, socialSupport }
+  ) {
     state.analisys.studentData = {
       university,
+      location,
+      course,
       extraCurricular,
       socialSupport,
     };
@@ -42,6 +47,7 @@ export default {
 
     state.analisys.studentData = {
       university: undefined,
+      location: undefined,
       socialSupport: undefined,
       extraCurricular: undefined,
     };

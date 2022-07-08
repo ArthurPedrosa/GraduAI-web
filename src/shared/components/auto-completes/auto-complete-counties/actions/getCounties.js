@@ -1,8 +1,8 @@
 import api from "$shared/services/api";
 
-const getUniversities = async () => {
+const getCounties = async ({ ufId }) => {
   try {
-    const response = await api.get("/analisys/universities");
+    const response = await api.get(`/analisys/counties/ufs/${ufId}`);
 
     return response.data;
   } catch (err) {
@@ -12,4 +12,4 @@ const getUniversities = async () => {
   }
 };
 
-export default getUniversities;
+export default getCounties;

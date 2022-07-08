@@ -13,6 +13,7 @@ export default {
   },
   studentData: {
     university: undefined,
+    location: undefined,
     extraCurricular: undefined,
     socialSupport: undefined,
   },
