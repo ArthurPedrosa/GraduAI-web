@@ -1,6 +1,6 @@
 import api from "$shared/services/api";
 
-const getUfs = async () => {
+const getRaces = async () => {
   try {
     const response = await api.get("/analisys/races");
 
@@ -12,4 +12,4 @@ const getUfs = async () => {
   }
 };
 
-export default getUfs;
+export default getRaces;

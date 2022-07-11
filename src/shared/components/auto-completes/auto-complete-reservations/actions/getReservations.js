@@ -1,8 +1,8 @@
 import api from "$shared/services/api";
 
-const getGenders = async () => {
+const getReservations = async () => {
   try {
-    const response = await api.get("/analisys/genders");
+    const response = await api.get("/analisys/reservations");
 
     return response.data;
   } catch (err) {
@@ -12,4 +12,4 @@ const getGenders = async () => {
   }
 };
 
-export default getGenders;
+export default getReservations;

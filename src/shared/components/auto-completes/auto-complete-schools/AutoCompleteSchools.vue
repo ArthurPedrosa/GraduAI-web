@@ -17,10 +17,10 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_RACES from "./actions/getRaces";
+import GET_SCHOOLS from "./actions/getSchools";
 
 export default {
-  name: "AutoCompleteRaces",
+  name: "AutoCompleteSchools",
 
   components: {
     AutoComplete,
@@ -52,9 +52,9 @@ export default {
   },
 
   async mounted() {
-    const [races] = await GET_RACES();
+    const [schools] = await GET_SCHOOLS();
 
-    this.dataList = races;
+    this.dataList = schools;
   },
 };
 </script>

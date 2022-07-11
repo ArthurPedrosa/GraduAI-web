@@ -4,23 +4,24 @@
     :label="label"
     :items="getItems"
     :rules="getRules"
-    :multiple="multiple"
     :width="width"
     :minWidth="minWidth"
     :maxWidth="maxWidth"
     :item-text="itemText"
     :item-value="itemValue"
     :persistent-hint="persistentHint"
+    :hint="hint"
+    multiple
     @blur="$emit('blur')"
   />
 </template>
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_RACES from "./actions/getRaces";
+import GET_EXTRAS from "./actions/getExtras";
 
 export default {
-  name: "AutoCompleteRaces",
+  name: "AutoCompleteExtras",
 
   components: {
     AutoComplete,
@@ -52,9 +53,8 @@ export default {
   },
 
   async mounted() {
-    const [races] = await GET_RACES();
-
-    this.dataList = races;
+    const [extras] = await GET_EXTRAS();
+    this.dataList = extras;
   },
 };
 </script>

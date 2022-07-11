@@ -3,5 +3,11 @@
 
   .fields-area {
     flex-wrap: wrap;
+
+    @media (max-width: 375px) {
+      .limit-field {
+        max-width: 280px !important;
+      }
+    }
   }
 }

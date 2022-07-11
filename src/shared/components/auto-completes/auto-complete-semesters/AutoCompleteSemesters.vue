@@ -11,16 +11,17 @@
     :item-text="itemText"
     :item-value="itemValue"
     :persistent-hint="persistentHint"
+    :hint="hint"
     @blur="$emit('blur')"
   />
 </template>
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_RACES from "./actions/getRaces";
+import GET_SEMESTERS from "./actions/getSemesters";
 
 export default {
-  name: "AutoCompleteRaces",
+  name: "AutoCompleteSemesters",
 
   components: {
     AutoComplete,
@@ -37,6 +38,10 @@ export default {
       type: String,
       default: "name",
     },
+    label: {
+      type: String,
+      default: "Cotas",
+    },
   },
 
   data() {
@@ -52,9 +57,9 @@ export default {
   },
 
   async mounted() {
-    const [races] = await GET_RACES();
+    const [semesters] = await GET_SEMESTERS();
 
-    this.dataList = races;
+    this.dataList = semesters;
   },
 };
 </script>

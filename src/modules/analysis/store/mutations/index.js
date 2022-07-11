@@ -1,5 +1,8 @@
 export default {
-  setPersonalData(state, { name, sex, race, birthDate, uf, city, naturality }) {
+  setPersonalData(
+    state,
+    { name, sex, race, birthDate, uf, city, nationality, deficiency }
+  ) {
     state.analisys.personalData = {
       name,
       sex,
@@ -7,20 +10,39 @@ export default {
       birthDate,
       uf,
       city,
-      naturality,
+      nationality,
+      deficiency,
     };
   },
 
   setStudentData(
     state,
-    { university, location, course, extraCurricular, socialSupport }
-  ) {
-    state.analisys.studentData = {
+    {
       university,
       location,
       course,
       extraCurricular,
       socialSupport,
+      school,
+      semester,
+      parfor,
+      financing,
+      reservation,
+      scholarship,
+    }
+  ) {
+    state.analisys.studentData = {
+      university,
+      location,
+      course,
+      socialSupport,
+      extraCurricular,
+      school,
+      semester,
+      parfor,
+      financing,
+      reservation,
+      scholarship,
     };
   },
 
@@ -42,7 +64,9 @@ export default {
       birthDate: undefined,
       uf: undefined,
       city: undefined,
-      naturality: undefined,
+      nationality: undefined,
+      deficiency: undefined,
+      financing: undefined,
     };
 
     state.analisys.studentData = {
@@ -50,6 +74,12 @@ export default {
       location: undefined,
       socialSupport: undefined,
       extraCurricular: undefined,
+      school: undefined,
+      semester: undefined,
+      parfor: undefined,
+      scholarship: undefined,
+      reservation: undefined,
+      financing: undefined,
     };
   },
 };
