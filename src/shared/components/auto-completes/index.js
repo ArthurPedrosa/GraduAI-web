@@ -13,6 +13,7 @@ import AutoCompleteSemesters from "./auto-complete-semesters/AutoCompleteSemeste
 import AutoCompleteReservations from "./auto-complete-reservations/AutoCompleteReservations";
 import AutoCompleteExtras from "./auto-complete-extras/AutoCompleteExtras";
 import AutoCompleteScholarships from "./auto-complete-scholarships/AutoCompleteScholarships";
+import AutoCompleteTickets from "./auto-complete-tickets/AutoCompleteTickets";
 
 export {
   AutoComplete,
@@ -30,4 +31,5 @@ export {
   AutoCompleteReservations,
   AutoCompleteExtras,
   AutoCompleteScholarships,
+  AutoCompleteTickets,
 };

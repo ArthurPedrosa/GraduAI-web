@@ -36,6 +36,27 @@
 
       <div v-if="!lastLevel" class="stepper-content-footer mx-5">
         <Button
+          v-if="showNewProfileButton"
+          small
+          text
+          color="success"
+          class="new-profile-button"
+          @click="deleteNewProfile"
+        >
+          Você está criando um novo perfil!
+        </Button>
+
+        <Button
+          v-if="getProfileId"
+          small
+          text
+          color="success"
+          @click="emitChangeLevel(1)"
+        >
+          Perfil: {{ getProfileName }}
+        </Button>
+
+        <Button
           small
           outlined
           class="ml-auto mb-2 mt-2"
@@ -51,6 +72,9 @@
 
 <script>
 import { CardDefault, TextDefault, Button } from "$shared/components";
+
+import { mapGetters } from "vuex";
+
 export default {
   name: "Stepper",
   components: { CardDefault, TextDefault, Button },
@@ -68,10 +92,18 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      getNewProfileStatus: "Analysis/getNewProfileStatus",
+      getProfileId: "Analysis/getProfileId",
+      getProfileName: "Analysis/getProfileName",
+    }),
+
+    showNewProfileButton() {
+      return this.getNewProfileStatus && this.actualLevel !== 1;
+    },
+
     lastLevel() {
-      return (
-        this.actualLevel === this.stepperData[this.stepperData.length - 1].id
-      );
+      return this.actualLevel === 4;
     },
   },
 
@@ -92,6 +124,10 @@ export default {
       } else {
         this.$emit("click:next-level", this.actualLevel + 1);
       }
+    },
+
+    deleteNewProfile() {
+      this.$store.commit("Analysis/setNewProfileStatus", false);
     },
   },
 };

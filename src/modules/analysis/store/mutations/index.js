@@ -1,15 +1,18 @@
 export default {
+  setProfile(state, { profileId, profileName }) {
+    state.analisys.profileId = profileId;
+    state.analisys.profileName = profileName;
+  },
+
   setPersonalData(
     state,
-    { name, sex, race, birthDate, uf, city, nationality, deficiency }
+    { name, sex, race, birthDate, nationality, deficiency }
   ) {
     state.analisys.personalData = {
       name,
       sex,
       race,
       birthDate,
-      uf,
-      city,
       nationality,
       deficiency,
     };
@@ -18,6 +21,7 @@ export default {
   setStudentData(
     state,
     {
+      ticket,
       university,
       location,
       course,
@@ -32,6 +36,7 @@ export default {
     }
   ) {
     state.analisys.studentData = {
+      ticket,
       university,
       location,
       course,
@@ -50,12 +55,18 @@ export default {
     state.stepper = level;
   },
 
+  setNewProfileStatus(state, pBoolean) {
+    state.newProfileStatus = pBoolean;
+  },
+
   clearStepperLevel(state) {
     state.stepper = undefined;
   },
 
   clearAnalisysForm(state) {
     state.stepper = undefined;
+
+    state.analisys.profileId = undefined;
 
     state.analisys.personalData = {
       name: undefined,
@@ -70,6 +81,7 @@ export default {
     };
 
     state.analisys.studentData = {
+      ticket: undefined,
       university: undefined,
       location: undefined,
       socialSupport: undefined,

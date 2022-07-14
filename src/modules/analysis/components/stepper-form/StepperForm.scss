@@ -45,7 +45,7 @@
     height: 100%;
 
     .stepper-contante-body {
-      height: 95%;
+      height: 94%;
     }
 
     .stepper-content-footer {
@@ -54,6 +54,18 @@
       margin-top: auto;
       justify-content: space-between;
       align-items: center;
+      @media (max-width: 500px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .new-profile-button {
+      &:hover {
+        color: #e03616 !important;
+        transition: ease, 0.2s;
+      }
     }
   }
 }

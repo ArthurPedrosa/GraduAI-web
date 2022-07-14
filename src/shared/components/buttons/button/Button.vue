@@ -1,3 +1,5 @@
+<style lang="scss" src="./Button.scss" scoped></style>
+
 <template>
   <v-btn
     :id="id"
@@ -9,7 +11,7 @@
     :text="text"
     :plain="plain"
     :color="color"
-    class="px-6"
+    class="px-6 btn"
     :style="{ width, minWidth }"
     @click="() => $emit('click')"
   >

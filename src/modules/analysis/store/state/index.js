@@ -1,6 +1,9 @@
 export default {
   stepper: undefined,
+  newProfileStatus: false,
   analisys: {
+    profileId: undefined,
+    profileName: undefined,
     personalData: {
       name: undefined,
       sex: undefined,
@@ -9,18 +12,19 @@ export default {
       nationality: undefined,
       deficiency: undefined,
     },
-  },
-  studentData: {
-    university: undefined,
-    location: undefined,
-    course: undefined,
-    socialSupport: undefined,
-    extraCurricular: undefined,
-    school: undefined,
-    semester: undefined,
-    parfor: undefined,
-    financing: undefined,
-    reservation: undefined,
-    scholarship: undefined,
+    studentData: {
+      ticket: undefined,
+      university: undefined,
+      location: undefined,
+      course: undefined,
+      socialSupport: undefined,
+      extraCurricular: undefined,
+      school: undefined,
+      semester: undefined,
+      parfor: undefined,
+      financing: undefined,
+      reservation: undefined,
+      scholarship: undefined,
+    },
   },
 };

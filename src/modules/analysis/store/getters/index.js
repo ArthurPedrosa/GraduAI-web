@@ -7,7 +7,19 @@ export default {
     return state.analisys.studentData;
   },
 
+  getProfileId(state) {
+    return state.analisys.profileId;
+  },
+
+  getProfileName(state) {
+    return state.analisys.profileName;
+  },
+
   getStepperLevel(state) {
     return state.stepper;
+  },
+
+  getNewProfileStatus(state) {
+    return state.newProfileStatus;
   },
 };

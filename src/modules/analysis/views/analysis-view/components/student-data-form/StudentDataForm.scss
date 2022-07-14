@@ -9,5 +9,11 @@
         max-width: 280px !important;
       }
     }
+
+    @media (min-width: 960px) {
+      .limit-large {
+        contain: size;
+      }
+    }
   }
 }

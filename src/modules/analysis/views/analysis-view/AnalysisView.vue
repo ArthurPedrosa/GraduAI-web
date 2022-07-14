@@ -28,7 +28,7 @@
         @click:change-level="changeLevel"
         @click:next-level="changeLevel"
       >
-        <ProfileForm v-if="isPerfil" />
+        <ProfileForm v-if="isPerfil" :onButtonClick="newProfile" />
         <PersonalDataForm ref="personal-data" v-else-if="isPersonalData" />
         <StudentDataForm v-else-if="isCollege" />
         <RevisionForm v-else-if="isRevision" />
@@ -154,6 +154,12 @@ export default {
           params: { scrollTo: "about-analisis" },
         })
         .catch(() => {});
+    },
+
+    newProfile() {
+      this.$store.commit("Analysis/clearAnalisysForm");
+      this.$store.commit("Analysis/setNewProfileStatus", true);
+      this.changeLevel(2);
     },
   },
 };
