@@ -29,10 +29,9 @@
         @click:next-level="changeLevel"
       >
         <ProfileForm v-if="isPerfil" :onButtonClick="newProfile" />
-        <PersonalDataForm ref="personal-data" v-else-if="isPersonalData" />
-        <StudentDataForm v-else-if="isCollege" />
-        <RevisionForm v-else-if="isRevision" />
-        <ResultForm v-else-if="isResult" />
+        <PersonalDataForm ref="personal" v-else-if="isPersonalData" />
+        <StudentDataForm ref="student" v-else-if="isCollege" />
+        <ResultForm v-else-if="isResult" :change-level="changeLevel" />
       </StepperForm>
     </div>
   </v-container>
@@ -114,10 +113,6 @@ export default {
       return this.actualLevel.label === "Dados Estudantis";
     },
 
-    isRevision() {
-      return this.actualLevel.label === "Revisão";
-    },
-
     isResult() {
       return this.actualLevel.label === "Resultados";
     },
@@ -136,7 +131,17 @@ export default {
   },
 
   methods: {
-    changeLevel(pNewId) {
+    async changeLevel(pNewId) {
+      const nextPage = this.actualLevel.id < pNewId;
+      const samePage = this.actualLevel.id === pNewId;
+      if (nextPage && !samePage) {
+        const refereceForm = this.$refs.personal || this.$refs.student;
+
+        if (refereceForm && !refereceForm.validateForm()) {
+          return;
+        }
+      }
+
       const hasSelected = this.STEPPER_DATA.find(
         (stepper) => stepper.id === pNewId
       );

@@ -53,6 +53,13 @@ export default {
     LoaderDefault,
   },
 
+  props: {
+    changeLevel: {
+      type: Function,
+      default: () => {},
+    },
+  },
+
   data() {
     return {
       loader: true,
@@ -71,6 +78,10 @@ export default {
 
   mounted() {
     this.submitAnalysis();
+  },
+
+  created() {
+    this.STUDENT_FORM = 3;
   },
 
   methods: {
@@ -107,6 +118,7 @@ export default {
           title: err.status || "Error",
           text: err.message || "",
         });
+        this.changeLevel(this.STUDENT_FORM);
       } finally {
         this.loader = false;
       }

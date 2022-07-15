@@ -1,3 +1,9 @@
 export default {
-  required: (value) => !!value || "Campo Obrigatório.",
+  required: (value) => {
+    if (value === 0) {
+      return true;
+    }
+
+    return !!value || "Campo Obrigatório.";
+  },
 };

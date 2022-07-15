@@ -1,11 +1,16 @@
 <style lang="scss" src="./StudentDataForm.scss" scoped></style>
 
 <template>
-  <v-form lazy-validation class="college-form d-flex flex-column py-15 px-5">
+  <v-form
+    ref="form"
+    lazy-validation
+    class="college-form d-flex flex-column py-15 px-5"
+  >
     <div class="d-flex fields-area">
       <v-col cols="12" md="6">
         <AutoCompleteUniversities
           v-model="form.university"
+          :rules="[$rulesValidations.required]"
           class="limit-field"
           label="Universidade"
           @blur="setStore"
@@ -15,6 +20,7 @@
       <v-col cols="12" md="6">
         <AutoCompleteLocations
           v-model="form.location"
+          :rules="[$rulesValidations.required]"
           class="limit-field"
           :university-id="form.university"
           label="Campus"
@@ -25,6 +31,7 @@
       <v-col cols="12" md="6">
         <AutoCompleteCourses
           v-model="form.course"
+          :rules="[$rulesValidations.required]"
           :location-id="form.location"
           class="limit-field"
           :university-id="form.university"
@@ -36,6 +43,7 @@
       <v-col cols="12" md="6">
         <AutoCompleteTickets
           v-model="form.ticket"
+          :rules="[$rulesValidations.required]"
           class="limit-field limit-large"
           persistent-hint
           hint="Informa a forma de ingresso na universidade."
@@ -57,6 +65,7 @@
       <v-col cols="12" md="3">
         <AutoCompleteSemesters
           v-model="form.semester"
+          :rules="[$rulesValidations.required]"
           label="Semestre"
           persistent-hint
           hint="Semestre do vínculo no curso."
@@ -67,6 +76,7 @@
       <v-col cols="12" md="4">
         <AutoCompleteSchools
           v-model="form.school"
+          :rules="[$rulesValidations.required]"
           label="Escola Conclusão Ensino Médio"
           @blur="setStore"
         />
@@ -95,6 +105,7 @@
       <v-col cols="12" md="4">
         <AutoCompleteYesOrNo
           v-model="form.financing"
+          :rules="[$rulesValidations.required]"
           label="Financiamento Estudantil"
           persistent-hint
           hint="Informa se o aluno utiliza financiamento estudantil."
@@ -105,6 +116,7 @@
       <v-col cols="12" md="4">
         <AutoCompleteYesOrNo
           v-model="form.socialSupport"
+          :rules="[$rulesValidations.required]"
           persistent-hint
           label="Apoio Social"
           hint="Informa se o aluno recebe algum tipo de apoio social na forma de
@@ -117,6 +129,7 @@
       <v-col cols="12" md="4">
         <AutoCompleteYesOrNo
           v-model="form.parfor"
+          :rules="[$rulesValidations.required]"
           label="PARFOR"
           persistent-hint
           hint="Informa se o aluno participa do programa especial para a formação de professores em exercício na rede publica de educação básica (PARFOR)."
@@ -188,6 +201,10 @@ export default {
   },
 
   methods: {
+    validateForm() {
+      return this.$refs.form.validate();
+    },
+
     setStore() {
       this.$store.commit("Analysis/setStudentData", this.form);
     },
