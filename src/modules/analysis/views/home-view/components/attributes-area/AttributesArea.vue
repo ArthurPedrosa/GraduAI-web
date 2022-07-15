@@ -27,7 +27,7 @@
           >
             <CardText
               :title-card="item.iat_name"
-              :subtitle-card="`${item.iat_importance} %`"
+              :subtitle-card="`${item.iat_importance.toFixed(1)} %`"
               class="card"
             >
               {{ item.iat_description }}
@@ -62,15 +62,15 @@ export default {
     TextDefault,
   },
 
-  async mounted() {
-    await this.getAttributes();
-  },
-
   data() {
     return {
       loader: false,
       attributtes: [[], 0],
     };
+  },
+
+  async mounted() {
+    await this.getAttributes();
   },
 
   methods: {

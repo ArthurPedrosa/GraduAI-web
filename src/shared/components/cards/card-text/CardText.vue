@@ -2,6 +2,10 @@
   <v-card color="primary-light black--text rounded-lg" elevation="3">
     <v-card-title class="text-h6 pb-0 primary--text text-capitalize">
       {{ titleCard }}
+
+      <span v-if="subtitleCard.length > 0" class="ml-auto subtitle-2">
+        {{ subtitleCard }}
+      </span>
     </v-card-title>
 
     <v-card-text class="black--text text-left">
@@ -23,6 +27,10 @@ export default {
 
   props: {
     titleCard: {
+      type: String,
+      default: "",
+    },
+    subtitleCard: {
       type: String,
       default: "",
     },
