@@ -27,6 +27,7 @@
         <InputDate
           v-model="form.birthDate"
           label="Data de Nascimento"
+          @change="setStore"
           @blur="setStore"
         />
       </v-col>
@@ -82,7 +83,7 @@ export default {
         name: undefined,
         sex: undefined,
         race: undefined,
-        birthDate: undefined,
+        birthDate: new Date().toISOString().slice(0, 10),
         nationality: undefined,
         deficiency: undefined,
       },

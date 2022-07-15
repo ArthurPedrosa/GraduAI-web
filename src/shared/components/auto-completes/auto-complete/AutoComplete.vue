@@ -80,6 +80,11 @@ export default {
       default: false,
     },
 
+    clearable: {
+      type: Boolean,
+      default: false,
+    },
+
     width: {
       type: String,
       default: "",

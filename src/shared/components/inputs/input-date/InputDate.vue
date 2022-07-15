@@ -24,9 +24,7 @@
     <v-date-picker v-model="inputValue" no-title scrollable>
       <v-spacer></v-spacer>
       <v-btn text color="primary" @click="menu = false"> Cancelar </v-btn>
-      <v-btn text color="primary" @click="$refs.menu.save(inputValue)">
-        Confirmar
-      </v-btn>
+      <v-btn text color="primary" @click="confirm"> Confirmar </v-btn>
     </v-date-picker>
   </v-menu>
 </template>
@@ -71,6 +69,11 @@ export default {
   }),
 
   methods: {
+    confirm() {
+      this.$refs.menu.save(this.inputValue);
+      this.$emit("blur");
+    },
+
     formatDate(pDate) {
       if (!pDate) return null;
 

@@ -78,7 +78,6 @@ export default {
       try {
         if (this.getStudentData && this.getPersonalData) {
           this.loader = true;
-          const { id } = this.getUserData;
           const params = {
             analisys: {
               ...this.getStudentData,
@@ -87,8 +86,8 @@ export default {
             saveProfile: this.getNewProfileStatus,
           };
 
-          if (id) {
-            params.analisys.userId = id;
+          if (this.getUserData?.id) {
+            params.analisys.userId = this.getUserData.id;
           }
 
           console.log(params);
