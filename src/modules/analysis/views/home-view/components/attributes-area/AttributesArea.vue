@@ -14,8 +14,8 @@
           <BarChart
             :chart-data="attributtes[0]"
             labelChart="Porcentagem(%) influência atributos."
-            variable-label-name="iat_name"
-            variable-value-name="iat_importance"
+            variable-label-name="name"
+            variable-value-name="importance"
           />
 
           <v-row
@@ -26,11 +26,11 @@
             align="center"
           >
             <CardText
-              :title-card="item.iat_name"
-              :subtitle-card="`${item.iat_importance.toFixed(1)} %`"
+              :title-card="item.name"
+              :subtitle-card="`${item.importance.toFixed(2)} %`"
               class="card"
             >
-              {{ item.iat_description }}
+              {{ item.description }}
             </CardText>
           </v-row>
         </div>

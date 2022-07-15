@@ -8,6 +8,7 @@ export default {
     state,
     { name, sex, race, birthDate, nationality, deficiency }
   ) {
+    console.log(sex);
     state.analisys.personalData = {
       name,
       sex,

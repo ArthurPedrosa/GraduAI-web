@@ -31,11 +31,11 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "ufs_id",
+      default: "id",
     },
     itemText: {
       type: String,
-      default: "ufs_name",
+      default: "name",
     },
   },
 
