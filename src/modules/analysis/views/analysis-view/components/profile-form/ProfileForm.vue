@@ -117,7 +117,6 @@ export default {
       const profileData = this.profilesData.find(
         (profile) => profile.profileId === pProfileId
       );
-      console.log(this.profilesData);
 
       this.$store.commit("Analysis/setNewProfileStatus", false);
       this.$store.commit("Analysis/setPersonalData", profileData);

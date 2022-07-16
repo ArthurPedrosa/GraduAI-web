@@ -60,7 +60,6 @@ export default {
 
   computed: {
     getItems() {
-      console.log(this.dataList);
       return this.dataList;
     },
   },
