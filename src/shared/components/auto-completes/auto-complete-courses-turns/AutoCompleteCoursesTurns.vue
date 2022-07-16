@@ -6,22 +6,22 @@
     :rules="getRules"
     :multiple="multiple"
     :width="width"
+    :disabled="!courseId"
     :minWidth="minWidth"
     :maxWidth="maxWidth"
     :item-text="itemText"
     :item-value="itemValue"
     :persistent-hint="persistentHint"
-    :disabled="!locationId || !universityId"
     @blur="$emit('blur')"
   />
 </template>
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_COURSES from "./actions/getCourses";
+import GET_TURNS from "./actions/getTurns";
 
 export default {
-  name: "AutoCompleteCourses",
+  name: "AutoCompleteCoursesTurns",
 
   components: {
     AutoComplete,
@@ -32,17 +32,21 @@ export default {
   props: {
     itemValue: {
       type: String,
-      default: "id",
+      default: "value",
     },
     itemText: {
       type: String,
       default: "name",
     },
+    universityId: {
+      type: Number,
+      default: 0,
+    },
     locationId: {
       type: Number,
       default: 0,
     },
-    universityId: {
+    courseId: {
       type: Number,
       default: 0,
     },
@@ -56,18 +60,26 @@ export default {
 
   computed: {
     getItems() {
+      console.log(this.dataList);
       return this.dataList;
     },
   },
 
   watch: {
-    locationId(pValue) {
+    courseId(pValue) {
       if (!pValue) {
         this.dataList = [];
         this.inputValue = undefined;
       }
 
-      this.getCourses();
+      this.getTurns();
+    },
+
+    locationId(pValue, pPrev) {
+      if (pValue && pPrev && pValue !== pPrev) {
+        this.dataList = [];
+        this.inputValue = undefined;
+      }
     },
 
     universityId(pValue, pPrev) {
@@ -79,20 +91,22 @@ export default {
   },
 
   mounted() {
-    this.getCourses();
+    this.getTurns();
   },
 
   methods: {
-    async getCourses() {
-      if (!this.locationId) {
+    async getTurns() {
+      if (!this.courseId) {
         return;
       }
 
-      const [courses] = await GET_COURSES({
-        locationId: this.locationId,
-      });
+      const [turns] = await GET_TURNS({ courseId: this.courseId });
 
-      this.dataList = courses;
+      if (typeof turns === "object") {
+        this.dataList = [turns];
+      } else {
+        this.dataList = turns;
+      }
     },
   },
 };

@@ -28,7 +28,7 @@
         />
       </v-col>
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="4">
         <AutoCompleteCourses
           v-model="form.course"
           :rules="[$rulesValidations.required]"
@@ -40,7 +40,19 @@
         />
       </v-col>
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="4">
+        <AutoCompleteCoursesTurns
+          v-model="form.turns"
+          :rules="[$rulesValidations.required]"
+          :course-id="form.course"
+          class="limit-field limit-large"
+          persistent-hint
+          label="Turno"
+          @blur="setStore"
+        />
+      </v-col>
+
+      <v-col cols="12" md="4">
         <AutoCompleteTickets
           v-model="form.ticket"
           :rules="[$rulesValidations.required]"
@@ -102,19 +114,8 @@
         />
       </v-col>
 
-      <v-col cols="12" md="4">
-        <AutoCompleteYesOrNo
-          v-model="form.financing"
-          :rules="[$rulesValidations.required]"
-          label="Financiamento Estudantil"
-          persistent-hint
-          hint="Informa se o aluno utiliza financiamento estudantil."
-          @blur="setStore"
-        />
-      </v-col>
-
-      <v-col cols="12" md="4">
-        <AutoCompleteYesOrNo
+      <v-col cols="12" md="6">
+        <AutoCompleteSupports
           v-model="form.socialSupport"
           :rules="[$rulesValidations.required]"
           persistent-hint
@@ -126,7 +127,18 @@
         />
       </v-col>
 
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="3">
+        <AutoCompleteYesOrNo
+          v-model="form.financing"
+          :rules="[$rulesValidations.required]"
+          label="Financiamento Estudantil"
+          persistent-hint
+          hint="Informa se o aluno utiliza financiamento estudantil."
+          @blur="setStore"
+        />
+      </v-col>
+
+      <v-col cols="12" md="3">
         <AutoCompleteYesOrNo
           v-model="form.parfor"
           :rules="[$rulesValidations.required]"
@@ -152,6 +164,8 @@ import {
   AutoCompleteExtras,
   AutoCompleteScholarships,
   AutoCompleteTickets,
+  AutoCompleteSupports,
+  AutoCompleteCoursesTurns,
 } from "$shared/components";
 import { mapGetters } from "vuex";
 
@@ -169,23 +183,26 @@ export default {
     AutoCompleteExtras,
     AutoCompleteScholarships,
     AutoCompleteTickets,
+    AutoCompleteSupports,
+    AutoCompleteCoursesTurns,
   },
 
   data() {
     return {
       form: {
+        turns: undefined,
         ticket: undefined,
         university: undefined,
         location: undefined,
         course: undefined,
-        socialSupport: undefined,
-        extraCurricular: undefined,
         school: undefined,
         semester: undefined,
         parfor: undefined,
         financing: undefined,
-        reservation: undefined,
-        scholarship: undefined,
+        socialSupport: [],
+        reservation: [],
+        scholarship: [],
+        extraCurricular: [],
       },
     };
   },

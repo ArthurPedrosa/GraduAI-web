@@ -22,6 +22,7 @@ export default {
   setStudentData(
     state,
     {
+      turns,
       ticket,
       university,
       location,
@@ -37,6 +38,7 @@ export default {
     }
   ) {
     state.analisys.studentData = {
+      turns,
       ticket,
       university,
       location,
@@ -82,14 +84,15 @@ export default {
     };
 
     state.analisys.studentData = {
+      turns: undefined,
       ticket: undefined,
       university: undefined,
       location: undefined,
-      socialSupport: undefined,
       school: undefined,
       semester: undefined,
       parfor: undefined,
       financing: undefined,
+      socialSupport: [],
       extraCurricular: [],
       scholarship: [],
       reservation: [],
