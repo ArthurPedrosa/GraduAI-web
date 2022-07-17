@@ -38,10 +38,9 @@
       <v-col cols="12" md="4">
         <InputDate
           v-model="form.birthDate"
-          :rules="[$rulesValidations.required]"
+          :rules="[$rulesValidations.birthdateInterval]"
           label="Data de Nascimento"
           @change="setStore"
-          @blur="setStore"
         />
       </v-col>
 

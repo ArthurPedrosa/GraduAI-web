@@ -3,7 +3,6 @@
     ref="menu"
     v-model="menu"
     :close-on-content-click="false"
-    :return-value.sync="inputValue"
     transition="scale-transition"
     offset-y
     min-width="auto"
@@ -14,18 +13,21 @@
         :label="label"
         :icon="icon"
         :bind="attrs"
+        :rules="getRules"
         :on="on"
         readonly
         :style="{ width, minWidth, maxWidth }"
         @blur="$emit('blur')"
+        @input="$emit('change')"
       />
     </template>
 
-    <v-date-picker v-model="inputValue" no-title scrollable>
-      <v-spacer></v-spacer>
-      <v-btn text color="primary" @click="menu = false"> Cancelar </v-btn>
-      <v-btn text color="primary" @click="confirm"> Confirmar </v-btn>
-    </v-date-picker>
+    <v-date-picker
+      v-model="inputValue"
+      no-title
+      scrollable
+      @input="$emit('change')"
+    />
   </v-menu>
 </template>
 
@@ -50,6 +52,10 @@ export default {
       type: String,
       default: "Data",
     },
+    rules: {
+      type: Array,
+      default: () => [],
+    },
   },
 
   computed: {
@@ -58,6 +64,9 @@ export default {
         return this.formatDate(this.inputValue);
       },
       set: function () {},
+    },
+    getRules() {
+      return this.rules;
     },
   },
 
@@ -69,11 +78,6 @@ export default {
   }),
 
   methods: {
-    confirm() {
-      this.$refs.menu.save(this.inputValue);
-      this.$emit("blur");
-    },
-
     formatDate(pDate) {
       if (!pDate) return null;
 

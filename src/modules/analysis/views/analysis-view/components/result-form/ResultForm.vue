@@ -17,22 +17,30 @@
       <v-row>
         <v-col cols="12" sm="3" class="card-info">
           <MagnifierIcon class="icon mb-2" />
-          <TextDefault class="text-center"> Nome. </TextDefault>
+          <TextDefault class="text-center text-subtitle-2 text-info">
+            {{ predictDropoutData.name }}
+          </TextDefault>
         </v-col>
 
         <v-col cols="12" sm="3" class="card-info">
           <CertificateIcon class="icon mb-2" />
-          <TextDefault class="text-center"> Universidade. </TextDefault>
+          <TextDefault class="text-center text-subtitle-2 text-info">
+            {{ predictDropoutData.university }}
+          </TextDefault>
         </v-col>
 
         <v-col cols="12" sm="3" class="card-info">
           <EarthIcon class="icon mb-2" />
-          <TextDefault class="text-center"> Campus. </TextDefault>
+          <TextDefault class="text-center text-subtitle-2 text-info">
+            {{ predictDropoutData.locale }}
+          </TextDefault>
         </v-col>
 
         <v-col cols="12" sm="3" class="card-info">
           <BookIcon class="icon mb-2" />
-          <TextDefault class="text-center"> Curso. </TextDefault>
+          <TextDefault class="text-center text-subtitle-2 text-info">
+            {{ predictDropoutData.course }}
+          </TextDefault>
         </v-col>
       </v-row>
 
@@ -42,14 +50,14 @@
           <TextDefault class="mt-4 text-center">
             Graduação:
             <span class="success--text font-weight-bold">
-              {{ percentFormat(predictDropoutData.probAprovado) }}
+              {{ percentFormat(predictDropoutData.oddApproved) }}
             </span>
           </TextDefault>
 
           <TextDefault class="text-center">
             Evasão:
             <span class="danger--text font-weight-bold">
-              {{ percentFormat(predictDropoutData.probReprovado) }}
+              {{ percentFormat(predictDropoutData.oddReproved) }}
             </span>
           </TextDefault>
         </v-col>
@@ -68,7 +76,7 @@
             <TextDefault
               class="text-center mt-2 mb-2 text-h5 result-border fit-content mx-auto"
               :style="{
-                borderColor: predictDropoutData.aprovado
+                borderColor: predictDropoutData.approved
                   ? '#44af69'
                   : '#e03616',
               }"
@@ -127,9 +135,13 @@ export default {
       loader: true,
       chartData: null,
       predictDropoutData: {
-        aprovado: false,
-        probAprovado: 0,
-        probReprovado: 0,
+        approved: true,
+        course: undefined,
+        locale: undefined,
+        name: undefined,
+        oddApproved: undefined,
+        oddReproved: undefined,
+        university: undefined,
       },
     };
   },
@@ -147,7 +159,7 @@ export default {
         return "";
       }
 
-      return this.predictDropoutData.aprovado ? "Aprovação" : " Evasão";
+      return this.predictDropoutData.approved ? "Aprovação" : " Evasão";
     },
   },
 
@@ -185,8 +197,8 @@ export default {
 
           this.predictDropoutData = data;
           this.chartData = [
-            { label: "Graduação", color: "#41B883", value: data.probAprovado },
-            { label: "Evasão", color: "#E46651", value: data.probReprovado },
+            { label: "Graduação", color: "#41B883", value: data.oddApproved },
+            { label: "Evasão", color: "#E46651", value: data.oddReproved },
           ];
         }
       } catch (err) {

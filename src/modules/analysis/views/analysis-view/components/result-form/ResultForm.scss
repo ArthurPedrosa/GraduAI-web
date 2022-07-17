@@ -12,6 +12,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    .text-info {
+      text-transform: uppercase;
+    }
   }
 
   .fit-content {
