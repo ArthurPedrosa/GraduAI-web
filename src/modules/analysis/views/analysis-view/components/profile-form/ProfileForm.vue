@@ -33,25 +33,41 @@
       class="mt-3 mr-2"
       color="danger"
       small
-      :disabled="!this.profile"
+      :disabled="!profile"
       width="15%"
       minWidth="200px"
-      @click="deleteProfile"
+      @click="confirmDeletation"
     >
       Deletar Perfil
     </Button>
+
+    <Modal
+      width="450px"
+      :show="showModalConfirmation"
+      confirmButton
+      @close="() => (showModalConfirmation = false)"
+      @confirm="deleteProfile"
+    >
+      <TextDefault>
+        Você está prestes a deletar o perfil selecionado, esse perfil não poderá
+        ser recuperado.
+        <span class="font-weight-bold"> Deseja continuar ? </span>
+      </TextDefault>
+    </Modal>
   </v-form>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { Button, AutoComplete } from "$shared/components";
+import { Button, AutoComplete, Modal, TextDefault } from "$shared/components";
 export default {
   name: "ProfileForm",
 
   components: {
     Button,
     AutoComplete,
+    Modal,
+    TextDefault,
   },
 
   props: {
@@ -65,6 +81,7 @@ export default {
     return {
       profilesData: [],
       profile: undefined,
+      showModalConfirmation: false,
     };
   },
 
@@ -131,6 +148,10 @@ export default {
       this.$store.commit("Analysis/clearAnalisysForm");
     },
 
+    confirmDeletation() {
+      this.showModalConfirmation = true;
+    },
+
     async deleteProfile() {
       try {
         if (!this.profile) {
@@ -140,6 +161,7 @@ export default {
         await this.$store.dispatch("Analysis/DELETE_PROFILE", this.profile);
         this.searchUserProfiles();
         this.profile = undefined;
+        this.showModalConfirmation = false;
       } catch (err) {
         this.$notify({
           group: "app",

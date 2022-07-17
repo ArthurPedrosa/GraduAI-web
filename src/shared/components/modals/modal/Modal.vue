@@ -1,19 +1,27 @@
 <template>
-  <v-row justify="center">
-    <v-dialog v-model="show" width="1600px">
-      <v-card>
-        <div class="pa-5">
-          <slot />
-        </div>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <Button id="close-modal" color="danger" text @click="$emit('close')">
-            Fechar
-          </Button>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
+  <v-dialog v-model="show" :width="width" @click:outside="$emit('close')">
+    <v-card>
+      <div class="pa-5">
+        <slot />
+      </div>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <Button id="close-modal" color="danger" text @click="$emit('close')">
+          Fechar
+        </Button>
+
+        <Button
+          v-if="confirmButton"
+          id="confirm-modal"
+          color="success"
+          text
+          @click="$emit('confirm')"
+        >
+          Confirmar
+        </Button>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
@@ -28,6 +36,14 @@ export default {
     show: {
       type: Boolean,
       default: false,
+    },
+    confirmButton: {
+      type: Boolean,
+      default: false,
+    },
+    width: {
+      type: String,
+      default: "",
     },
   },
 };
