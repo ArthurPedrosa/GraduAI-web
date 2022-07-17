@@ -13,44 +13,106 @@
         A análise pode demorar um pouco.
       </TextDefault>
     </div>
-    <div v-else>
-      <v-col class="justify-center align-center pa-0">
-        <!-- <TextDefault class="text-h5 font-weight-bold text-center">
-        Análise Realizada Com Sucesso!
-      </TextDefault> -->
+    <div v-else class="content">
+      <v-row>
+        <v-col cols="12" sm="3" class="card-info">
+          <MagnifierIcon class="icon mb-2" />
+          <TextDefault class="text-center"> Nome. </TextDefault>
+        </v-col>
 
-        <TextDefault class="text-center">
-          De acordo com os atributos informados, o GraduAI considera que há uma
-          probabilidade de :
-        </TextDefault>
+        <v-col cols="12" sm="3" class="card-info">
+          <CertificateIcon class="icon mb-2" />
+          <TextDefault class="text-center"> Universidade. </TextDefault>
+        </v-col>
 
-        <!-- <TextDefault class="text-center">
-        Graduação de
-        <span class="success--text font-weight-bold">60%</span>
+        <v-col cols="12" sm="3" class="card-info">
+          <EarthIcon class="icon mb-2" />
+          <TextDefault class="text-center"> Campus. </TextDefault>
+        </v-col>
+
+        <v-col cols="12" sm="3" class="card-info">
+          <BookIcon class="icon mb-2" />
+          <TextDefault class="text-center"> Curso. </TextDefault>
+        </v-col>
+      </v-row>
+
+      <v-row class="mt-8 area-info">
+        <v-col class="chart-size mr-auto" col="12" md="4">
+          <PieChart :chartData="chartData" />
+          <TextDefault class="mt-4 text-center">
+            Graduação:
+            <span class="success--text font-weight-bold">
+              {{ percentFormat(predictDropoutData.probAprovado) }}
+            </span>
+          </TextDefault>
+
+          <TextDefault class="text-center">
+            Evasão:
+            <span class="danger--text font-weight-bold">
+              {{ percentFormat(predictDropoutData.probReprovado) }}
+            </span>
+          </TextDefault>
+        </v-col>
+
+        <v-col
+          class="dflex justify-space-around align-center content px-10"
+          col="12"
+          md="8"
+        >
+          <div>
+            <TextDefault class="text-center">
+              De acordo com os atributos informados, o GraduAI classificou que
+              há uma maior probabilidade de :
+            </TextDefault>
+
+            <TextDefault
+              class="text-center mt-2 mb-2 text-h5 result-border fit-content mx-auto"
+              :style="{
+                borderColor: predictDropoutData.aprovado
+                  ? '#44af69'
+                  : '#e03616',
+              }"
+            >
+              {{ resultText }}
+            </TextDefault>
+          </div>
+
+          <TextDefault class="text-center">
+            Obrigado por utilizar o GraduAI!
+          </TextDefault>
+        </v-col>
+      </v-row>
+
+      <TextDefault class="text-center font-weight-bold text-subtitle-2 mt-4">
+        GraduAI classificou seus dados utilizando técnicas de aprendizado de
+        máquinas, baseado em dados do INEP do ano de 2019.
       </TextDefault>
-
-      <TextDefault class="text-center">
-        Evasão de
-        <span class="danger--text font-weight-bold">40%</span>
-      </TextDefault> -->
-      </v-col>
-
-      <div class="chart-size mr-auto">
-        <PieChart />
-      </div>
     </div>
   </v-container>
 </template>
 
 <script>
-import { PieChart, TextDefault, LoaderDefault } from "$shared/components";
+import {
+  PieChart,
+  TextDefault,
+  LoaderDefault,
+  MagnifierIcon,
+  BookIcon,
+  CertificateIcon,
+  EarthIcon,
+} from "$shared/components";
 import { mapGetters } from "vuex";
+
 export default {
   name: "ResultForm",
   components: {
     PieChart,
     TextDefault,
     LoaderDefault,
+    MagnifierIcon,
+    BookIcon,
+    CertificateIcon,
+    EarthIcon,
   },
 
   props: {
@@ -63,7 +125,12 @@ export default {
   data() {
     return {
       loader: true,
-      predictDropoutData: null,
+      chartData: null,
+      predictDropoutData: {
+        aprovado: false,
+        probAprovado: 0,
+        probReprovado: 0,
+      },
     };
   },
 
@@ -74,6 +141,14 @@ export default {
       getUserData: "AccessControl/userData",
       getNewProfileStatus: "Analysis/getNewProfileStatus",
     }),
+
+    resultText() {
+      if (!this.predictDropoutData) {
+        return "";
+      }
+
+      return this.predictDropoutData.aprovado ? "Aprovação" : " Evasão";
+    },
   },
 
   mounted() {
@@ -101,15 +176,18 @@ export default {
             params.analisys.userId = this.getUserData.id;
           }
 
-          console.log(params);
-
           const data = await this.$store.dispatch(
             "Analysis/PREDICT_DROPOUT_RATE",
             params
           );
 
           this.$store.commit("Analysis/setNewProfileStatus", false);
+
           this.predictDropoutData = data;
+          this.chartData = [
+            { label: "Graduação", color: "#41B883", value: data.probAprovado },
+            { label: "Evasão", color: "#E46651", value: data.probReprovado },
+          ];
         }
       } catch (err) {
         this.$notify({
@@ -122,6 +200,10 @@ export default {
       } finally {
         this.loader = false;
       }
+    },
+
+    percentFormat(pParam) {
+      return `${pParam.toFixed(2)} %`;
     },
   },
 };

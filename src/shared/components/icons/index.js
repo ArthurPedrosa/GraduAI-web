@@ -5,6 +5,10 @@ import CreatorsIcon from "./creators-icon/CreatorsIcon";
 import CloudIcon from "./cloud-icon/CloudIcon";
 import LoginIcon from "./login-icon/LoginIcon";
 import InfoIcon from "./info-icon/InfoIcon";
+import MagnifierIcon from "./magnifier-icon/MagnifierIcon";
+import CertificateIcon from "./certificate-icon/CertificateIcon";
+import BookIcon from "./book-icon/BookIcon";
+import EarthIcon from "./earth-icon/EarthIcon";
 
 export {
   LogoIcon,
@@ -14,4 +18,8 @@ export {
   CloudIcon,
   LoginIcon,
   InfoIcon,
+  CertificateIcon,
+  MagnifierIcon,
+  BookIcon,
+  EarthIcon,
 };

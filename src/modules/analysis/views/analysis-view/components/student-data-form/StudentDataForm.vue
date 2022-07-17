@@ -214,7 +214,7 @@ export default {
   },
 
   mounted() {
-    this.getStore();
+    this.fillDataWithStore();
   },
 
   methods: {
@@ -226,7 +226,7 @@ export default {
       this.$store.commit("Analysis/setStudentData", this.form);
     },
 
-    getStore() {
+    fillDataWithStore() {
       this.form = this.getStudentData;
     },
   },

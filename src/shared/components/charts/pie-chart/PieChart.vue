@@ -5,14 +5,43 @@ export default {
   name: "PieChart",
 
   extends: Pie,
+
+  props: {
+    chartData: {
+      required: true,
+      type: Array,
+      default: () => [],
+    },
+
+    variableLabelName: {
+      type: String,
+      default: "label",
+    },
+
+    variableValueName: {
+      type: String,
+      default: "value",
+    },
+
+    variableColorsName: {
+      type: String,
+      default: "color",
+    },
+  },
+
   mounted() {
+    const labels = this.chartData.map((item) => item[this.variableLabelName]);
+    const data = this.chartData.map((item) => item[this.variableValueName]);
+    const colors = this.chartData.map((item) => item[this.variableColorsName]);
+
     this.renderChart(
       {
         labels: ["Graduação", "Evasão"],
         datasets: [
           {
-            backgroundColor: ["#41B883", "#E46651"],
-            data: [60, 40],
+            labels,
+            backgroundColor: colors,
+            data,
           },
         ],
       },
