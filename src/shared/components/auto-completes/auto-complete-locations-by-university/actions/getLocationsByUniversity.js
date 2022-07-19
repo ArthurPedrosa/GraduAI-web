@@ -1,9 +1,9 @@
 import api from "$shared/services/api";
 
-const getLocations = async ({ universityId }) => {
+const getLocationsByUniversity = async ({ universityId }) => {
   try {
     const response = await api.get(
-      `/analisys/locations/universities/${universityId}`
+      `/analisys/universities/${universityId}/locations`
     );
 
     return response.data;
@@ -14,4 +14,4 @@ const getLocations = async ({ universityId }) => {
   }
 };
 
-export default getLocations;
+export default getLocationsByUniversity;

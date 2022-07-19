@@ -1,8 +1,8 @@
 import api from "$shared/services/api";
 
-const getCourses = async ({ locationId }) => {
+const getCoursesByLocation = async ({ locationId }) => {
   try {
-    const response = await api.get(`/analisys/courses/locations/${locationId}`);
+    const response = await api.get(`/analisys/locations/${locationId}/courses`);
 
     return response.data;
   } catch (err) {
@@ -12,4 +12,4 @@ const getCourses = async ({ locationId }) => {
   }
 };
 
-export default getCourses;
+export default getCoursesByLocation;

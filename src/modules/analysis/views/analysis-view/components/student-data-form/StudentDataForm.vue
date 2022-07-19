@@ -18,7 +18,7 @@
       </v-col>
 
       <v-col cols="12" md="6">
-        <AutoCompleteLocations
+        <AutoCompleteLocationsByUniversity
           v-model="form.location"
           :rules="[$rulesValidations.required]"
           class="limit-field"
@@ -29,12 +29,13 @@
       </v-col>
 
       <v-col cols="12" md="4">
-        <AutoCompleteCourses
+        <AutoCompleteCoursesByLocation
           v-model="form.course"
           :rules="[$rulesValidations.required]"
           :location-id="form.location"
           class="limit-field"
           :university-id="form.university"
+          :disabled="!form.location || !form.university"
           label="Cursos"
           @blur="setStore"
         />
@@ -155,9 +156,9 @@
 <script>
 import {
   AutoCompleteUniversities,
-  AutoCompleteLocations,
+  AutoCompleteLocationsByUniversity,
   AutoCompleteYesOrNo,
-  AutoCompleteCourses,
+  AutoCompleteCoursesByLocation,
   AutoCompleteSchools,
   AutoCompleteSemesters,
   AutoCompleteReservations,
@@ -174,9 +175,9 @@ export default {
 
   components: {
     AutoCompleteUniversities,
-    AutoCompleteLocations,
+    AutoCompleteLocationsByUniversity,
     AutoCompleteYesOrNo,
-    AutoCompleteCourses,
+    AutoCompleteCoursesByLocation,
     AutoCompleteSchools,
     AutoCompleteSemesters,
     AutoCompleteReservations,

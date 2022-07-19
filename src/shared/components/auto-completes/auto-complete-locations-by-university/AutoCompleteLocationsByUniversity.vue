@@ -18,10 +18,10 @@
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_LOCATIONS from "./actions/getLocations";
+import GET_LOCATIONS_BY_UNIVERSITY from "./actions/getLocationsByUniversity";
 
 export default {
-  name: "AutoCompleteLocations",
+  name: "AutoCompleteLocationsByUniversity",
 
   components: {
     AutoComplete,
@@ -77,7 +77,7 @@ export default {
         return;
       }
 
-      const [locations] = await GET_LOCATIONS({
+      const [locations] = await GET_LOCATIONS_BY_UNIVERSITY({
         universityId: this.universityId,
       });
 

@@ -10,6 +10,20 @@
       </SubTitle>
 
       <div class="container-card">
+        <v-form
+          ref="form-profile"
+          lazy-validation
+          class="d-flex align-center justify-center flex-column"
+        >
+          <AutoCompleteCoursesByLocation
+            v-model="form.courseName"
+            label="Informe um Curso"
+            :items="[{ value: 'alo', text: 'alooo' }]"
+            itemValue="name"
+            itemText="name"
+          />
+        </v-form>
+
         <v-row
           v-for="(item, index) in 5"
           :key="index"
@@ -38,13 +52,27 @@
 </template>
 
 <script>
-import { SubTitle, GraduateHatIcon, TextDefault } from "$shared/components";
+import {
+  SubTitle,
+  GraduateHatIcon,
+  TextDefault,
+  AutoCompleteCoursesByLocation,
+} from "$shared/components";
 export default {
   name: "UniversitiesArea",
   components: {
     SubTitle,
     GraduateHatIcon,
     TextDefault,
+    AutoCompleteCoursesByLocation,
+  },
+
+  data() {
+    return {
+      form: {
+        courseName: undefined,
+      },
+    };
   },
 
   computed: {},

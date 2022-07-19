@@ -11,17 +11,17 @@
     :item-text="itemText"
     :item-value="itemValue"
     :persistent-hint="persistentHint"
-    :disabled="!locationId || !universityId"
+    :disabled="disabled"
     @blur="$emit('blur')"
   />
 </template>
 
 <script>
 import AutoComplete from "../auto-complete/AutoComplete.vue";
-import GET_COURSES from "./actions/getCourses";
+import GET_COURSES_BY_LOCATION from "./actions/getCoursesByLocation";
 
 export default {
-  name: "AutoCompleteCourses",
+  name: "AutoCompleteCoursesByLocation",
 
   components: {
     AutoComplete,
@@ -45,6 +45,10 @@ export default {
     universityId: {
       type: Number,
       default: 0,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -88,7 +92,7 @@ export default {
         return;
       }
 
-      const [courses] = await GET_COURSES({
+      const [courses] = await GET_COURSES_BY_LOCATION({
         locationId: this.locationId,
       });
 

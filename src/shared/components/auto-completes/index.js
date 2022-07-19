@@ -4,8 +4,8 @@ import AutoCompleteRaces from "./auto-complete-races/AutoCompleteRaces";
 import AutoCompleteGenders from "./auto-complete-genders/AutoCompleteGenders";
 import AutoCompleteYesOrNo from "./auto-complete-yes-or-no/AutoCompleteYesOrNo";
 import AutoCompleteUniversities from "./auto-complete-universities/AutoCompleteUniversities";
-import AutoCompleteLocations from "./auto-complete-locations/AutoCompleteLocations";
-import AutoCompleteCourses from "./auto-complete-courses/AutoCompleteCourses";
+import AutoCompleteLocationsByUniversity from "./auto-complete-locations-by-university/AutoCompleteLocationsByUniversity";
+import AutoCompleteCoursesByLocation from "./auto-complete-courses-by-location/AutoCompleteCoursesByLocation";
 import AutoCompleteCounties from "./auto-complete-counties/AutoCompleteCounties";
 import AutoCompleteNationalities from "./auto-complete-nationalities/AutoCompleteNationalities";
 import AutoCompleteSchools from "./auto-complete-schools/AutoCompleteSchools";
@@ -24,8 +24,8 @@ export {
   AutoCompleteGenders,
   AutoCompleteYesOrNo,
   AutoCompleteUniversities,
-  AutoCompleteLocations,
-  AutoCompleteCourses,
+  AutoCompleteLocationsByUniversity,
+  AutoCompleteCoursesByLocation,
   AutoCompleteCounties,
   AutoCompleteNationalities,
   AutoCompleteSchools,
