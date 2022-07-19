@@ -9,6 +9,7 @@ import MagnifierIcon from "./magnifier-icon/MagnifierIcon";
 import CertificateIcon from "./certificate-icon/CertificateIcon";
 import BookIcon from "./book-icon/BookIcon";
 import EarthIcon from "./earth-icon/EarthIcon";
+import EmptyIcon from "./empty-icon/EmptyIcon";
 
 export {
   LogoIcon,
@@ -22,4 +23,5 @@ export {
   MagnifierIcon,
   BookIcon,
   EarthIcon,
+  EmptyIcon,
 };

@@ -16,6 +16,7 @@ import AutoCompleteScholarships from "./auto-complete-scholarships/AutoCompleteS
 import AutoCompleteTickets from "./auto-complete-tickets/AutoCompleteTickets";
 import AutoCompleteSupports from "./auto-complete-supports/AutoCompleteSupports";
 import AutoCompleteCoursesTurns from "./auto-complete-courses-turns/AutoCompleteCoursesTurns";
+import AutoCompleteCourses from "./auto-complete-courses/AutoCompleteCourses";
 
 export {
   AutoComplete,
@@ -36,4 +37,5 @@ export {
   AutoCompleteTickets,
   AutoCompleteSupports,
   AutoCompleteCoursesTurns,
+  AutoCompleteCourses,
 };
