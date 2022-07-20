@@ -130,21 +130,23 @@ export default {
     },
 
     selectProfile(pProfileId) {
-      1;
       const profileData = this.profilesData.find(
         (profile) => profile.profileId === pProfileId
       );
 
-      this.$store.commit("Analysis/setNewProfileStatus", false);
-      this.$store.commit("Analysis/setPersonalData", profileData);
-      this.$store.commit("Analysis/setStudentData", profileData);
-      this.$store.commit("Analysis/setProfile", {
-        profileId: pProfileId,
-        profileName: profileData.name,
-      });
+      if (profileData) {
+        this.$store.commit("Analysis/setCreateOrUpdateProfile", true);
+        this.$store.commit("Analysis/setPersonalData", profileData);
+        this.$store.commit("Analysis/setStudentData", profileData);
+        this.$store.commit("Analysis/setProfile", {
+          profileId: pProfileId,
+          profileName: profileData.name,
+        });
+      }
     },
 
     cleanProfileForm() {
+      this.$store.commit("Analysis/setCreateOrUpdateProfile", false);
       this.$store.commit("Analysis/clearAnalisysForm");
     },
 

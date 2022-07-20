@@ -151,7 +151,8 @@ export default {
       getStudentData: "Analysis/getStudentData",
       getPersonalData: "Analysis/getPersonalData",
       getUserData: "AccessControl/userData",
-      getNewProfileStatus: "Analysis/getNewProfileStatus",
+      getCreateOrUpdateProfile: "Analysis/getCreateOrUpdateProfile",
+      getProfileId: "Analysis/getProfileId",
     }),
 
     resultText() {
@@ -181,11 +182,15 @@ export default {
               ...this.getStudentData,
               ...this.getPersonalData,
             },
-            saveProfile: this.getNewProfileStatus,
+            saveProfile: this.getCreateOrUpdateProfile,
           };
 
           if (this.getUserData?.id) {
             params.analisys.userId = this.getUserData.id;
+          }
+
+          if (this.getProfileId) {
+            params.analisys.profileId = this.getProfileId;
           }
 
           const data = await this.$store.dispatch(
@@ -193,7 +198,12 @@ export default {
             params
           );
 
-          this.$store.commit("Analysis/setNewProfileStatus", false);
+          if (data.profileId) {
+            this.$store.commit("Analysis/setProfile", {
+              profileId: data.profileId,
+              profileName: params.analisys.name,
+            });
+          }
 
           this.predictDropoutData = data;
           this.chartData = [

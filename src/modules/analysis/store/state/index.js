@@ -1,6 +1,6 @@
 export default {
   stepper: undefined,
-  newProfileStatus: false,
+  createOrUpdateProfile: false,
   analisys: {
     profileId: undefined,
     profileName: undefined,

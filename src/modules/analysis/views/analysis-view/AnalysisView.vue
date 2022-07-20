@@ -163,7 +163,7 @@ export default {
 
     newProfile() {
       this.$store.commit("Analysis/clearAnalisysForm");
-      this.$store.commit("Analysis/setNewProfileStatus", true);
+      this.$store.commit("Analysis/setCreateOrUpdateProfile", true);
       this.changeLevel(2);
     },
   },

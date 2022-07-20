@@ -19,7 +19,7 @@ export default {
     return state.stepper;
   },
 
-  getNewProfileStatus(state) {
-    return state.newProfileStatus;
+  getCreateOrUpdateProfile(state) {
+    return state.createOrUpdateProfile;
   },
 };

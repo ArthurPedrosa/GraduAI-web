@@ -57,8 +57,8 @@ export default {
     state.stepper = level;
   },
 
-  setNewProfileStatus(state, pBoolean) {
-    state.newProfileStatus = pBoolean;
+  setCreateOrUpdateProfile(state, pBoolean) {
+    state.createOrUpdateProfile = pBoolean;
   },
 
   clearStepperLevel(state) {

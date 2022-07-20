@@ -36,7 +36,7 @@
 
       <div v-if="!lastLevel" class="stepper-content-footer mx-5">
         <Button
-          v-if="showNewProfileButton"
+          v-if="showNewProfileButton && !getProfileId"
           small
           text
           color="success"
@@ -53,7 +53,7 @@
           color="success"
           @click="emitChangeLevel(1)"
         >
-          Perfil: {{ getProfileName }}
+          Editando Perfil: {{ getProfileName }}
         </Button>
 
         <Button
@@ -93,13 +93,13 @@ export default {
 
   computed: {
     ...mapGetters({
-      getNewProfileStatus: "Analysis/getNewProfileStatus",
+      getCreateOrUpdateProfile: "Analysis/getCreateOrUpdateProfile",
       getProfileId: "Analysis/getProfileId",
       getProfileName: "Analysis/getProfileName",
     }),
 
     showNewProfileButton() {
-      return this.getNewProfileStatus && this.actualLevel !== 1;
+      return this.getCreateOrUpdateProfile && this.actualLevel !== 1;
     },
 
     lastLevel() {
@@ -127,7 +127,7 @@ export default {
     },
 
     deleteNewProfile() {
-      this.$store.commit("Analysis/setNewProfileStatus", false);
+      this.$store.commit("Analysis/setCreateOrUpdateProfile", false);
     },
   },
 };
