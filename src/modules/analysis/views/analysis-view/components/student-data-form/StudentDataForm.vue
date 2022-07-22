@@ -59,7 +59,7 @@
           :rules="[$rulesValidations.required]"
           class="limit-field limit-large"
           persistent-hint
-          hint="Informa a forma de ingresso na universidade."
+          hint="Informa a maneira que pretende de ingressar na universidade."
           label="Ingresso"
           @blur="setStore"
         />
@@ -70,7 +70,7 @@
           v-model="form.reservation"
           label="Reservas"
           persistent-hint
-          hint="Informa se o aluno participa de programa de reserva de vagas."
+          hint="Informa se o aluno pretende participar de programa de reserva de vagas."
           @blur="setStore"
         />
       </v-col>
@@ -100,7 +100,7 @@
           v-model="form.extraCurricular"
           persistent-hint
           label="Atividades Extras Curriculares"
-          hint="Informa se o aluno participa de algum tipo de atividade extracurricular (estágio não obrigatório, extensão, monitoria e pesquisa)."
+          hint="Informa se o aluno pretende participar de algum tipo de atividade extracurricular (estágio não obrigatório, extensão, monitoria e pesquisa)."
           @blur="setStore"
         />
       </v-col>
@@ -110,7 +110,7 @@
           v-model="form.scholarship"
           label="Bolsas"
           persistent-hint
-          hint="Informa se o aluno recebe bolsa/remuneração por fazer atividade extracurricular."
+          hint="Informa se o aluno pretende receber bolsa/remuneração por fazer atividade extracurricular."
           @blur="setStore"
         />
       </v-col>
@@ -121,7 +121,7 @@
           :rules="[$rulesValidations.required]"
           persistent-hint
           label="Apoio Social"
-          hint="Informa se o aluno recebe algum tipo de apoio social na forma de
+          hint="Informa se o aluno  pretende receber algum tipo de apoio social na forma de
           moradia, transporte, alimentação, material didático e bolsas
           (trabalho/permanência)."
           @blur="setStore"
@@ -134,7 +134,7 @@
           :rules="[$rulesValidations.required]"
           label="Financiamento Estudantil"
           persistent-hint
-          hint="Informa se o aluno utiliza financiamento estudantil."
+          hint="Informa se o aluno pretende utilizar financiamento estudantil."
           @blur="setStore"
         />
       </v-col>
@@ -145,7 +145,7 @@
           :rules="[$rulesValidations.required]"
           label="PARFOR"
           persistent-hint
-          hint="Informa se o aluno participa do programa especial para a formação de professores em exercício na rede publica de educação básica (PARFOR)."
+          hint="Informa se o aluno pretende participar do programa especial para a formação de professores em exercício na rede publica de educação básica (PARFOR)."
           @blur="setStore"
         />
       </v-col>
