@@ -1,7 +1,7 @@
 <style lang="scss" src="./AboutAnalysisArea.scss" scoped></style>
 <template>
   <v-container class="container">
-    <v-row>
+    <div>
       <v-col align="center">
         <SubTitle class="primary--text mb-8">Sobre a Análise</SubTitle>
         <div>
@@ -24,9 +24,11 @@
           </CardText>
         </div>
       </v-col>
-    </v-row>
+    </div>
 
-    <v-row>
+    <img src="../../../../assets/ROCAUC.png" class="img-size" />
+
+    <div>
       <v-col align="center">
         <div class="container">
           <CardText>
@@ -48,12 +50,15 @@
           </CardText>
         </div>
       </v-col>
-    </v-row>
+    </div>
+
+    <img src="../../../../assets/mapa.png" class="img-map-size" />
   </v-container>
 </template>
 
 <script>
 import { SubTitle, CardText, TextDefault } from "$shared/components";
+
 export default {
   name: "AboutAnalysisArea",
   components: {
