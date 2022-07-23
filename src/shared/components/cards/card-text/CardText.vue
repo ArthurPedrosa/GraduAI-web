@@ -1,5 +1,9 @@
 <template>
-  <v-card color="primary-light black--text rounded-lg" elevation="3">
+  <v-card
+    color="primary-item black--text rounded-lg"
+    :elevation="elevation"
+    style="border: 1px solid #cdcdcd"
+  >
     <v-card-title class="text-h6 pb-0 primary--text text-capitalize">
       {{ titleCard }}
 
@@ -33,6 +37,10 @@ export default {
     subtitleCard: {
       type: String,
       default: "",
+    },
+    elevation: {
+      type: String,
+      default: "0",
     },
   },
 };

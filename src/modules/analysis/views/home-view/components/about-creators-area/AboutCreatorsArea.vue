@@ -4,33 +4,33 @@
     <v-col align="center">
       <SubTitle class="text-center primary--text mb-16"> Sobre Nós </SubTitle>
 
-      <CreatorsIcon class="creators-icon hidden-xs-only" />
-      <div class="container">
-        <v-row class="my-8">
+      <CreatorsIcon class="creators-icon hidden-xs-only mb-8" />
+      <div class="container mb-8">
+        <v-row>
           <CardText>
-            <TextDefault class="font-weight-bold">
-              What is Lorem Ipsum?
+            <TextDefault class="font-weight-bold primary--text text-h6">
+              Criadores
             </TextDefault>
+
             <TextDefault>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book. It
-              has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              <div class="mt-5">
+                O GraduAI é um software construído para o trabalho de conclusão
+                de curso de Sistemas de Informação do
+                <span class="font-weight-bold">
+                  Centro Federal de Educação Tecnológica Celso Suckow da Fonseca
+                  (CEFET/RJ).
+                </span>
+
+                <ul class="mt-5">
+                  <ul>
+                    <ul>
+                      <li>Arthur Pedrosa Ferreira;</li>
+                      <li>Leonardo Almeida Teodoro;</li>
+                      <li>Marco André Abud Kappel.</li>
+                    </ul>
+                  </ul>
+                </ul>
+              </div>
             </TextDefault>
           </CardText>
         </v-row>

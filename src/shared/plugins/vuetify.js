@@ -26,6 +26,7 @@ export default new Vuetify({
         forecolor: "#fff",
         dark: "#000",
         base: "#f1f1f1",
+        item: "#fefefe",
       },
     },
   },
