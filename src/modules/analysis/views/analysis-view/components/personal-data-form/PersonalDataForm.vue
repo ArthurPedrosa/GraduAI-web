@@ -97,7 +97,7 @@ export default {
         name: undefined,
         sex: undefined,
         race: undefined,
-        birthDate: new Date().toISOString().slice(0, 10),
+        birthDate: undefined,
         nationality: undefined,
         deficiency: undefined,
       },

@@ -56,6 +56,7 @@ export default {
   methods: {
     clearStore() {
       this.$store.commit("Analysis/clearAnalisysForm");
+      this.$store.commit("Analysis/setCreateOrUpdateProfile", false);
     },
   },
 };
