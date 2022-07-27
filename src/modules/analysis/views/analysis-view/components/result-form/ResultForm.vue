@@ -85,6 +85,26 @@
             </TextDefault>
           </div>
 
+          <div
+            class="my-5"
+            v-if="
+              predictDropoutData.suggestions &&
+              predictDropoutData.suggestions.length > 0
+            "
+          >
+            <TextDefault class="text-center font-weight-bold">
+              Você pode melhorar sua chance de aprovação nas seguintes
+              instituições de ensino:
+            </TextDefault>
+
+            <TextDefault
+              v-for="(item, key) in predictDropoutData.suggestions"
+              :key="key"
+            >
+              {{ item }}
+            </TextDefault>
+          </div>
+
           <TextDefault class="text-center">
             Obrigado por utilizar o GraduAI!
           </TextDefault>
