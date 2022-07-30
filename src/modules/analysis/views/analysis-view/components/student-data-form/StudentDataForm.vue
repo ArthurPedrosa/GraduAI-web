@@ -99,7 +99,7 @@
         <AutoCompleteExtras
           v-model="form.extraCurricular"
           persistent-hint
-          label="Atividades Extras Curriculares"
+          label="Atividades Extracurriculares"
           hint="Informa se o aluno pretende participar de algum tipo de atividade extracurricular (estágio não obrigatório, extensão, monitoria e pesquisa)."
           @blur="setStore"
         />
