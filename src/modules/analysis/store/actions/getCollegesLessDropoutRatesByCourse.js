@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getCollegesLessDropoutRatesByCourse = async (store, params) => {
   try {
-    const { data } = await api.post("/analisys/predictions/colleges", params);
+    const { data } = await api.post("/analysis/predictions/colleges", params);
 
     return data;
   } catch (err) {

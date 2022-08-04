@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getCoursesByLocation = async ({ locationId }) => {
   try {
-    const response = await api.get(`/analisys/locations/${locationId}/courses`);
+    const response = await api.get(`/analysis/locations/${locationId}/courses`);
 
     return response.data;
   } catch (err) {

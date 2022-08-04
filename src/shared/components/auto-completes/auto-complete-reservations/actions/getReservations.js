@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getReservations = async () => {
   try {
-    const response = await api.get("/analisys/reservations");
+    const response = await api.get("/analysis/reservations");
 
     return response.data;
   } catch (err) {

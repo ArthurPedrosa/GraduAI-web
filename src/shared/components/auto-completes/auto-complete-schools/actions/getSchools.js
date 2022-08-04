@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getSchools = async () => {
   try {
-    const response = await api.get("/analisys/schools");
+    const response = await api.get("/analysis/schools");
 
     return response.data;
   } catch (err) {

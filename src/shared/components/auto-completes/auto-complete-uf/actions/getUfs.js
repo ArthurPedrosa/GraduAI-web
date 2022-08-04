@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getUfs = async () => {
   try {
-    const response = await api.get("/analisys/ufs");
+    const response = await api.get("/analysis/ufs");
 
     return response.data;
   } catch (err) {

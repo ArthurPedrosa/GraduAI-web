@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getUserProfiles = async (store) => {
   try {
-    const response = await api.get("/analisys/profiles", {
+    const response = await api.get("/analysis/profiles", {
       headers: {
         Authorization: `Bearer ${store.rootGetters["AccessControl/getToken"]}`,
       },

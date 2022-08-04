@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getGenders = async () => {
   try {
-    const response = await api.get("/analisys/genders");
+    const response = await api.get("/analysis/genders");
 
     return response.data;
   } catch (err) {

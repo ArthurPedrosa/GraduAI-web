@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const deleteProfile = async (store, profileId) => {
   try {
-    const response = await api.delete(`/analisys/profiles/${profileId}`, {
+    const response = await api.delete(`/analysis/profiles/${profileId}`, {
       headers: {
         Authorization: `Bearer ${store.rootGetters["AccessControl/getToken"]}`,
       },

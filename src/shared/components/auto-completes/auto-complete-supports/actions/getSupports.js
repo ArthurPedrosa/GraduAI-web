@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getSupports = async () => {
   try {
-    const response = await api.get("/analisys/supports");
+    const response = await api.get("/analysis/supports");
 
     return response.data;
   } catch (err) {

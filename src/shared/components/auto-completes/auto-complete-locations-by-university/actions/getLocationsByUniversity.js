@@ -3,7 +3,7 @@ import api from "$shared/services/api";
 const getLocationsByUniversity = async ({ universityId }) => {
   try {
     const response = await api.get(
-      `/analisys/universities/${universityId}/locations`
+      `/analysis/universities/${universityId}/locations`
     );
 
     return response.data;

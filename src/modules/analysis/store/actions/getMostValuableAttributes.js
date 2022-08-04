@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getMostValuableAttributes = async () => {
   try {
-    const { data } = await api.get("/analisys/predictions/attributes");
+    const { data } = await api.get("/analysis/predictions/attributes");
 
     return data;
   } catch (err) {

@@ -2,7 +2,7 @@ import api from "$shared/services/api";
 
 const getCounties = async ({ ufId }) => {
   try {
-    const response = await api.get(`/analisys/counties/ufs/${ufId}`);
+    const response = await api.get(`/analysis/counties/ufs/${ufId}`);
 
     return response.data;
   } catch (err) {
