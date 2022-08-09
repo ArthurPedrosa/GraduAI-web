@@ -7,8 +7,6 @@ describe("Verify home page load", () => {
     testPage();
 
     cy.contains("h3", "Descubra sua chance de aprovação!");
-    cy.contains("h4", "As Universidades com Menores Taxas de Evasão");
-    cy.contains("h4", "Os Atributos Mais Influentes");
     cy.contains("h4", "Sobre a Análise");
     cy.contains("h4", "Sobre Nós");
 
