@@ -13,6 +13,8 @@
             :append-icon="appendIcon"
             :readonly="readonly"
             :disabled="disabled"
+            :hint="hint"
+            persistent-hint="true"
             outlined
             dense
             :autocomplete="autoComplete"
@@ -88,6 +90,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    hint: {
+      type: String,
+      default: "",
     },
   },
 

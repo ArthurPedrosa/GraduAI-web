@@ -11,7 +11,8 @@
         <Input
           v-model="form.name"
           :rules="[$rulesValidations.required]"
-          label="Nome"
+          hint="Este será o nome apresentado ao final da análise"
+          label="Identificação"
           @blur="setStore"
         />
       </v-col>
