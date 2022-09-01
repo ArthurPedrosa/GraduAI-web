@@ -161,10 +161,6 @@
                   as suas previsões. Por estes motivos, é a técnica cujos
                   resultados foram os mais importantes.
                 </div>
-
-                <div class="font-weight-bold mt-5 text-center">
-                  Para saber mais: XXXX
-                </div>
               </div>
             </TextDefault>
           </CardText>
