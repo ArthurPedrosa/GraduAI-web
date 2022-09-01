@@ -24,9 +24,24 @@
                 <ul class="mt-5">
                   <ul>
                     <ul>
-                      <li>Arthur Pedrosa Ferreira;</li>
-                      <li>Leonardo Almeida Teodoro;</li>
-                      <li>Marco André Abud Kappel.</li>
+                      <li>
+                        <TextDefault>Arthur Pedrosa Ferreira</TextDefault>
+                        <TextDefault class="text-body-2">
+                          E-mail: arthurpedrosaferreira1999@gmail.com
+                        </TextDefault>
+                      </li>
+                      <li>
+                        <TextDefault>Leonardo Almeida Teodoro</TextDefault>
+                        <TextDefault class="text-body-2">
+                          E-mail: leonardoteodoro.web@gmail.com
+                        </TextDefault>
+                      </li>
+                      <li>
+                        <TextDefault>Marco André Abud Kappel</TextDefault>
+                        <TextDefault class="text-body-2">
+                          E-mail: maakappel@gmail.com
+                        </TextDefault>
+                      </li>
                     </ul>
                   </ul>
                 </ul>

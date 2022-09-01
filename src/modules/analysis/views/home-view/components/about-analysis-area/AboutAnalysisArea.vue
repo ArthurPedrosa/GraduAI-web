@@ -23,6 +23,7 @@
                 terá mais chances de se formar, dentro de alguns parâmetros
                 previamente definidos.
               </div>
+
               <div class="mt-5">
                 O objetivo primário fornecer aos estudantes as informações sobre
                 a probabilidade de graduação no curso pretendido, utilizando um
@@ -41,6 +42,21 @@
                 instituição de ensino superior pública brasileira seja
                 facilitada e bem-sucedida, o que irá contribuir para a redução
                 da evasão e os problemas socioeconômicos causados por ela.
+              </div>
+
+              <div class="mt-5">
+                O GraduAI possui uma API aberta que pode ser consumida por
+                terceiros. A ideia é auxiliar instituições de ensino a
+                identificarem seus alunos que estão classificados como um
+                possível risco de evasão. Dessa forma, a insituição pode tomar
+                medidas que auxiliem determinados alunos a não evadirem.
+              </div>
+
+              <div class="mt-5 text-center">
+                API e Documentação:
+                <a href="https://www.graduai-api.com/doc/" target="_blank">
+                  https://www.graduai-api.com/doc/
+                </a>
               </div>
             </TextDefault>
           </CardText>

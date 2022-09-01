@@ -20,7 +20,7 @@
             color="success"
             @click="goToRoute('/analysis')"
           >
-            Começar
+            Começar Análise
           </Button>
 
           <Button
