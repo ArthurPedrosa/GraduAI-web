@@ -176,7 +176,7 @@
 
     <ImageField
       src="ROCAUC.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 2: Curvas ROC médias para cada classificador."
     />
 
@@ -218,67 +218,67 @@
 
     <ImageField
       src="evasao_estado.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 4: Total de casos de evasão e sucesso de acordo com os estados brasileiros."
     />
 
     <ImageField
       src="barra_idade.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 5: Histograma da variável Idade, separada em casos de evasão e sucesso."
     />
 
     <ImageField
       src="sexo.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 6: Total de casos de evasão e sucesso de acordo com o sexo dos alunos."
     />
 
     <ImageField
       src="semestre.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 7: Total de casos de evasão e de sucesso de acordo com o semestre de referência do vínculo ao curso."
     />
 
     <ImageField
       src="etnia.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 8: Total de casos de evasão e sucesso de acordo com a raça declarada dos alunos."
     />
 
     <ImageField
       src="ensino_medio.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 9: Total de casos de evasão e sucesso de acordo com o tipo de escola que o aluno concluiu ensino médio."
     />
 
     <ImageField
       src="reserva_etnico.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 10: Total de casos de evasão e sucesso comparando alunos que possuem e que não possuem reserva de vaga étnica."
     />
 
     <ImageField
       src="pesquisa.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 11: Total de casos de evasão e sucesso dos alunos de acordo com a prática de atividades extracurriculares."
     />
 
     <ImageField
       src="TP_INGRESSO.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 12: Total de casos de evasão e sucesso de acordo com o tipo de ingresso do aluno."
     />
 
     <ImageField
       src="cursos.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 13: Total de casos de evasão e sucesso para os 20 cursos com maior número de alunos na base de dados."
     />
 
     <ImageField
       src="area_especifica.png"
-      class="img-bar-size img hidden-xs-only"
+      class="img-bar-size img"
       legend="Figura 14: Evasão e sucesso de acordo com a área específica do curso."
     />
   </v-container>
