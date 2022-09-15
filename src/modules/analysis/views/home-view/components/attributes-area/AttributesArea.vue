@@ -4,7 +4,7 @@
   <v-container>
     <v-col align="center">
       <SubTitle class="text-center primary--text">
-        Os {{ attributtes[1] || "" }} Atributos Mais Influentes
+        Os {{ attributtes[1] || "" }} Atributos Mais Influentes na Formação
       </SubTitle>
 
       <div class="container">

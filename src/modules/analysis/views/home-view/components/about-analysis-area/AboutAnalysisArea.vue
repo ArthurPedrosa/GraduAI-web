@@ -48,8 +48,8 @@
                 O GraduAI possui uma API aberta que pode ser consumida por
                 terceiros. A ideia é auxiliar instituições de ensino a
                 identificarem seus alunos que estão classificados como um
-                possível risco de evasão. Dessa forma, a insituição pode tomar
-                medidas que auxiliem determinados alunos a não evadirem.
+                possível risco de evasão. Dessa forma, a instituição pode tomar
+                medidas que auxiliam determinados alunos a não evadirem.
               </div>
 
               <div class="mt-5 text-center">
